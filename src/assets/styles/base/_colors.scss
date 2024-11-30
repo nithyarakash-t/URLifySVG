@@ -1,0 +1,75 @@
+@mixin base-theme {
+  --color-base-white: #fff;
+  --color-base-black: #000;
+
+  --kp-clr-primary-400: hsl(263 55% 52%);
+  --kp-clr-secondary-400: hsl(217 19% 35%);
+  --kp-clr-secondary-500: hsl(219 29% 14%);
+  --kp-clr-neutral-100: hsl(0 0% 100%);
+  --kp-clr-neutral-200: hsl(210 46% 95%);
+  --kp-clr-neutral-300: hsl(0 0% 81%);
+
+  --app-grey-100: #fafafa;
+  --app-grey-200: #eee;
+  --app-grey-300: #ddd;
+  --app-grey-400: #ccc;
+  --app-grey-700: #737373;
+  --app-grey-800: #505050;
+  --app-grey-900: #222;
+  --app-color-body-bg: light-dark(#fff, #000);
+  --app-color-body-bg-2: light-dark(
+    var(--kp-clr-neutral-200),
+    var(--kp-clr-secondary-500)
+  );
+
+  --app-color-text-primary: light-dark(#000, #fff);
+  --app-color-border-primary: light-dark(#ccc, #737373);
+  --anchor-color-text-primary: light-dark(#000, #fff);
+  --anchor-color-text-primary-active: light-dark(#000. #fff);
+  --anchor-color-text-secondary: light-dark(#999, #737373);
+  --anchor-color-text-secondary-active: light-dark(#0f73ee, #bb86fc);
+  --app-color-primary: light-dark(#000, #fff);
+  --app-color-secondary: light-dark(#505050, #ddd);
+  --app-color-tertiory: light-dark(#737373, #ccc);
+  --app-color-contrast: light-dark(#fff, #000);
+  
+  // new
+  --color-default: light-dark(
+    var(--color-base-black, #000),
+    var(--color-base-white, #fff)
+  );
+  --color-contrast: light-dark(
+    var(--color-base-white, #fff),
+    var(--color-base-black, #000)
+  );
+  --color-overlay: light-dark(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.6));
+  --color-base-background: light-dark(
+    var(--color-base-white, #fff),
+    var(--color-base-black, #000)
+  );
+  --color-base-text: light-dark(
+    var(--color-base-black, #000),
+    var(--color-base-white, #fff)
+  );
+  --color-base-border: light-dark(
+    var(--color-base-black, #000),
+    var(--color-base-white, #fff)
+  );
+}
+
+:root {
+  color-scheme: light dark;
+  @include base-theme();
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+  &:has(body[data-theme="dark"]) {
+    color-scheme: dark;
+  }
+
+  // Ability to provide smooth scroll behavior on supported browsers only.
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
