@@ -1,5 +1,74 @@
 //settings and base
-@use './assets/styles/base/typography';
-@use './assets/styles/base/colors';
-@use './assets/styles/base/reset';
-@use './assets/styles/base/layout';
+@use "./assets/styles/base/typography";
+@use "./assets/styles/base/colors";
+@use "./assets/styles/base/reset";
+@use "./assets/styles/base/layout";
+
+//common
+body {
+  font-family: Trebuchet MS, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+a {
+  color: light-dark(#0f73ee, #bb86fc);
+  text-decoration: underline;
+  display: inline-block;
+  &:hover,
+  &:focus-visible {
+  }
+}
+.app-title, h1 {
+  font-size: 2.75rem;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  color: light-dark(#000, #fff);
+  text-decoration: none;
+  display: block;
+
+  span {
+    display: block;
+    font-size: 0.6em;
+  }
+}
+
+@mixin blocksize() {
+  height: 9.375rem;
+  width: 100%;
+}
+
+textarea {
+  @include blocksize();
+  border: 1px solid var(--color-base-border);
+  border-radius: 0.625rem;
+}
+
+.app-demo {
+  &__block {
+    @include blocksize();
+    border: 1px dashed var(--color-base-border);
+  }
+}
+
+.app-group {
+  &__title {
+    font-size: 1.25rem;
+  }
+  &__foot {
+    color: light-dark(#777);
+  }
+  &__body {
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  & {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
