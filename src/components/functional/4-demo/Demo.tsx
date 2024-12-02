@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./Demo.scss";
 
-export function Demo() {
+export function Demo({image}:{readonly image:string}) {
     const [background, setBackground] = useState('#fff');
+    console.log(image);
 
     function changeBackground(color:string) {
-        setBackground(color)
+        setBackground(color);
     }
     
     return (
@@ -33,7 +34,7 @@ export function Demo() {
             </fieldset>
         </div>
         <div className="app-group__body">
-            <div className="app-demo__block" style={{backgroundColor: background}}></div>
+            <div className="app-demo__block" style={{backgroundColor: background, backgroundImage: image}}></div>
         </div>
     </section>
     )

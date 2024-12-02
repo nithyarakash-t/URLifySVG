@@ -10,12 +10,17 @@ body {
   font-size: 1rem;
   font-weight: 400;
 }
-a {
+.linkbutton {
+  background-color: transparent;
+  border: none;
+}
+a, .linkbutton {
   color: light-dark(#0f73ee, #bb86fc);
   text-decoration: underline;
   display: inline-block;
   &:hover,
   &:focus-visible {
+    color: light-dark(#a100ff, red);
   }
 }
 .app-title, h1 {
@@ -47,6 +52,7 @@ textarea {
   &__block {
     @include blocksize();
     border: 1px dashed var(--color-base-border);
+    background-repeat: no-repeat;
   }
 }
 
