@@ -6,8 +6,6 @@ export function Insert({input, handlerFunction}:{readonly input:string, readonly
     /** Handle insert input - start */
     function changeHandler(event:FormEvent) {
         const target = event.currentTarget as HTMLTextAreaElement;
-        // console.log(target.value);
-
         handlerFunction(target.value);
     }
     /**Handle insert input - end */

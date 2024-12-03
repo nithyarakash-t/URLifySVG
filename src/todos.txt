@@ -11,3 +11,4 @@
 
 -- v2.0
 -- dropzone, but check for bugs
+-- malformed URI sequence handle / alert

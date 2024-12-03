@@ -8,7 +8,7 @@ export function ReleaseNotes() {
                 <ol className="app-releasenotes__list">
                     <li>
                         <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
-                            <h3 id='releasenote_v_1.1'>Version 1.1 - 06.12.2024</h3>
+                            <h3 id='releasenote_v_1.1'>Version 1.1 - 04.12.2024</h3>
                             <ul>
                                 <li>Implemented decode</li>
                             </ul>

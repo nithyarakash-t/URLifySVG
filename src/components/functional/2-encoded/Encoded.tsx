@@ -1,11 +1,11 @@
-import { FormEvent } from "react";
+import { ChangeEvent } from "react";
 import "./Encoded.scss";
 
-export function Encoded({input}:{readonly input:string}) {
+export function Encoded({input, handlerFunction}:{readonly input:string, readonly handlerFunction:(input:string)=>void}) {
     /** Handle input - start */
-    function changeHandler(event:FormEvent) {
+    function changeHandler(event:ChangeEvent) {
         const target = event.currentTarget as HTMLTextAreaElement;
-        console.log(target.value);
+        handlerFunction(target.value);
     }
     /**Handle input - end */
     return (

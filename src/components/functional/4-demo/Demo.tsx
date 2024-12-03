@@ -3,7 +3,6 @@ import "./Demo.scss";
 
 export function Demo({image}:{readonly image:string}) {
     const [background, setBackground] = useState('#fff');
-    console.log(image);
 
     function changeBackground(color:string) {
         setBackground(color);
