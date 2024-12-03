@@ -1,14 +1,16 @@
--- release notes - react router
+-- release notes - react router -- done
 -- improve UX, colors
 -- anchor styling
 
--- v1.1
+-- make release notes to a JSON
+
+-- v2.0
 -- container query
 -- dark mode (with after dark neon sign)
 -- language support
 -- accessibility
 -- SEO
 
--- v2.0
+-- v3.0
 -- dropzone, but check for bugs
 -- malformed URI sequence handle / alert
