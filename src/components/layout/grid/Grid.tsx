@@ -9,20 +9,16 @@ import "./Grid.scss";
 export function Grid() {
     const [encodeInput, setEncodeInput] = useState('');
     const [decodeInput, setDecodeInput] = useState('');
+    const [quoteType, setQuoteType] = useState('double');
 
-    const resultCss = encodeInput.length === 0 ? '' : `url("data:image/svg+xml,${decodeInput}")`;
-
-    // useEffect(()=>{
-    //    return () =>{
-    //    }
-    // }, [encodeInput, decodeInput])
+    const resultCss = encodeInput.length === 0 ? '' : `url(${quoteType === 'double' ? '"' : "'"}data:image/svg+xml,${decodeInput}${quoteType === 'double' ? '"' : "'"})`;
 
     /**Encode - start*/
     function handleEncodeChange(input:string) {
         setEncodeInput(input);
 
-        const namespaced = addNameSpace(input);
-        const escaped = encodeSVG(namespaced);
+        const namespaced = addNameSpace(input, quoteType);
+        const escaped = encodeSVG(namespaced, quoteType);
         setDecodeInput(escaped);
     }
     /**Encode - end */
@@ -40,17 +36,35 @@ export function Grid() {
     }
     /**Decode - end */
 
+    function handleRadioChange(input:string) {
+        setQuoteType(input);
+
+        const namespaced = addNameSpace(encodeInput, input);
+        const escaped = encodeSVG(namespaced, input);
+        setDecodeInput(escaped);
+    }
+
     return (
         <div className="app-main__wrap">
             <div className="app-container">
                 <div className="app-main__head">
-                    {/* <div className="app-main__quoteselection" role="group" aria-labelledby="app_main_quoteselection_title">
+                    <div className="app-main__quoteselection" role="group" aria-labelledby="app_main_quoteselection_title">
                         <p id="app_main_quoteselection_title">External quotes:</p>
 
-                        //change to radio
-                        <a href="#" className="app-main__quotelink">single</a>
-                        <a href="#" className="app-main__quotelink">double</a>
-                    </div> */}
+                        {/* change to radio */}
+                        <label className="app-main__radio">
+                            <input type="radio" name="quotation" id="single" checked={quoteType === 'single'}
+                            onChange={()=>handleRadioChange('single')}/>
+                            <span>single</span>
+                        </label>
+                        <label className="app-main__radio">
+                            <input type="radio" name="quotation" id="double" checked={quoteType === 'double'}
+                            onChange={()=>handleRadioChange('double')}/>
+                            <span>double</span>
+                        </label>
+                        {/* <a href="#" className="app-main__quotelink">single</a> */}
+                        {/* <a href="#" className="app-main__quotelink">double</a> */}
+                    </div>
                 </div>
                 <div className="app-main__grid">
                     <Insert input={encodeInput} handlerFunction={handleEncodeChange}/>

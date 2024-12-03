@@ -8,7 +8,18 @@ export function ReleaseNotes() {
                 <ol className="app-releasenotes__list">
                     <li>
                         <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
-                            <h3 id='releasenote_v_1.1'>Version 1.1 - 04.12.2024</h3>
+                            <h3 id='releasenote_v_1.2'>Version 1.2 - 04.12.2024</h3>
+                            <ul>
+                                <li>Added favicon</li>
+                                <li>Implemented option to choose external quote</li>
+                                <li>Implemented option to load example</li>
+                                <li>Implemented copy to clipboard option</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
+                            <h3 id='releasenote_v_1.1'>Version 1.1 - 03.12.2024</h3>
                             <ul>
                                 <li>Implemented decode</li>
                             </ul>
@@ -16,7 +27,7 @@ export function ReleaseNotes() {
                     </li>
                     <li>
                         <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.1">
-                            <h3 id='releasenote_v_1.1'>Version 1.0 - 03.12.2024</h3>
+                            <h3 id='releasenote_v_1.1'>Version 1.0 - 02.12.2024</h3>
                             <ul>
                                 <li>MVP deployed</li>
                                 <li>Implemented Encode</li>
