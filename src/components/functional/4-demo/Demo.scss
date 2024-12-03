@@ -1,0 +1,42 @@
+.app-demo {
+  &__radio {
+    input {
+      cursor: pointer;
+      appearance: none;
+      height: 1.5rem;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      border: 1px solid #000;
+      background-color: var(--radio-fill);
+      &:checked {
+        border: 0.1875rem solid light-dark(#0f73ee, #bb86fc);
+        height: calc(1.5rem + 0.375rem);
+      }
+    }
+
+    & {
+      --radio-fill: #fff;
+      display: inline-flex;
+      position: relative;
+      outline: 1px red;
+      &:nth-child(3) {
+        --radio-fill: #c0c0c0;
+      }
+      &:nth-child(4) {
+        --radio-fill: #000;
+      }
+    }
+  }
+  &__btnswrap {
+    // all: unset;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    legend {
+      // all: unset;
+      float: left;
+      padding-right: 0.5rem;
+    }
+  }
+}

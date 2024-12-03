@@ -2,6 +2,10 @@
 A personal use site to convert SVG to encoded URL, to be used for backgrounds and masks.
 Inspired by Yoksel @ https://yoksel.github.io/
 
+CSS features tried out
+  - @container
+  - color-scheme
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
