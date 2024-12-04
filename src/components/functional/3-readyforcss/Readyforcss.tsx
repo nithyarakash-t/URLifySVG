@@ -21,7 +21,8 @@ export function Readyforcss({input}:{readonly input:string}) {
                 <a role='button' onClick={copyToClipboard} aria-label="Copy to clipboard">Copy</a>
             </div>
             <div className="app-group__body">
-                <textarea ref={textarea} id="app_ready_texarea" name="app_ready_texarea" 
+                <textarea ref={textarea} id="app_ready_texarea" name="app_ready_texarea"
+                aria-label='Ready for CSS URL'
                 defaultValue={(input.length > 0 ? 'background-image: ' : '') + input + (input.length > 0 ? ';' : '')} 
                 spellCheck="false"></textarea>
             </div>

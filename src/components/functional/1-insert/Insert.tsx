@@ -67,13 +67,14 @@ export function Insert({input, handlerFunction}
             </div>
             <div className="app-group__body" id="insert-body">
                 <textarea id="app_insert_svg" name="app_insert_svg" spellCheck="false"
-                value={input}
+                value={input} 
+                aria-label="Insert SVG" aria-describedby="app_insert_foot"
                 onChange={(e)=>changeHandler(e)}></textarea>
 
                 <div ref={dropzone} onDrop={(event)=>handleDrop(event)} className="app-dropzone"></div>
             </div>
             <div className="app-group__foot">
-                <p>You may enter the code or drop SVG file here</p>
+                <p id="app_insert_foot">You may enter the code or drop SVG file here</p>
             </div>
         </section>
     )
