@@ -13,6 +13,7 @@
         }
     }
     &__list {
+        padding-left: 1rem;
         list-style-type: disclosure-closed;
         display: flex;
         flex-direction: column;
@@ -26,6 +27,18 @@
     &__title {
         font-size: 2rem;
         text-align: center;
+    }
+    &__back {
+        color: #000;
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+    &__head {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
     &__wrap {
         padding: 2rem 0;
