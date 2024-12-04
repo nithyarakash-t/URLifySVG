@@ -3,6 +3,7 @@
 -- anchor styling
 
 -- make release notes to a JSON
+-- dark theme for favicon
 
 -- v2.0
 -- container query
@@ -14,3 +15,4 @@
 -- v3.0
 -- dropzone, but check for bugs
 -- malformed URI sequence handle / alert
+-- improve SEO
