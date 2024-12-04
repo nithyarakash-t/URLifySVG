@@ -1,5 +1,5 @@
 import "./App.scss"
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Footer } from "./components/layout/footer/Footer"
 import { Grid } from "./components/layout/grid/Grid"
@@ -12,10 +12,10 @@ function App() {
       <div className="app-wrapper">
         <main className="app-wrap" id="main">
           <div className="app-container">
-            <Link to={'/'} className='app-title' aria-label="URLifySVG - URL Encoder for SVG">
+            <h1 className='app-title' aria-label="URLifySVG - URL Encoder for SVG">
               URLifySVG
               <span>URL Encoder for SVG</span>
-            </Link>
+            </h1>
           </div>
             <Routes>
               <Route path="/" element={<Grid/>}></Route>

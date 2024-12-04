@@ -59,11 +59,13 @@ textarea {
 .app-group {
   &__title {
     font-size: 1.25rem;
+    padding: 1rem 0;
   }
   &__foot {
     color: light-dark(#777);
   }
   &__body {
+    position: relative;
   }
   &__head {
     display: flex;

@@ -33,7 +33,7 @@ export function Encoded({input, handlerFunction}:{readonly input:string, readonl
                 value={input} onChange={changeHandler}></textarea>
             </div>
             <div className="app-group__foot">
-                {/* <p>You may place encoded SVG here to decode it back</p> */}
+                <p>You may place encoded SVG here to decode it back</p>
             </div>
         </section>
     )
