@@ -46,6 +46,7 @@ textarea {
   @include blocksize();
   border: 1px solid var(--color-base-border);
   border-radius: 0.625rem;
+  resize: vertical;
 }
 
 .app-demo {
