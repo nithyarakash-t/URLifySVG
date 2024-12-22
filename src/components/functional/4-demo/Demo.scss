@@ -6,7 +6,8 @@
       height: 1.5rem;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      border: 1px solid light-dark(#000, #fff);
+      border: 1px solid;
+      border-color: inherit;
       background-color: var(--radio-fill);
       &:checked {
         border: 0.1875rem solid light-dark(#0f73dd, #bb86fc);
@@ -18,12 +19,17 @@
       --radio-fill: #fff;
       display: inline-flex;
       position: relative;
-      outline: 1px red;
+      z-index: 99999;
+      &:nth-child(2) {
+        border-color: light-dark(#000, #000);
+      }
       &:nth-child(3) {
         --radio-fill: #c0c0c0;
+        border-color: light-dark(#000, #000);
       }
       &:nth-child(4) {
         --radio-fill: #000;
+        border-color: light-dark(#fff, #fff);
       }
     }
   }
