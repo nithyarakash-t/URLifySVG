@@ -15,7 +15,15 @@ export function ReleaseNotes() {
                 <ol className="app-releasenotes__list">
                     <li>
                         <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
-                            <h3 id='releasenote_v_1.2'>Version 1.3 - 05.12.2024</h3>
+                            <h3 id='releasenote_v_1.4'>Version 1.4 - 22.12.2024</h3>
+                            <ul>
+                                <li>Changed color scheme to only light and added dark theme via mix blend mode</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
+                            <h3 id='releasenote_v_1.3'>Version 1.3 - 05.12.2024</h3>
                             <ul>
                                 <li>Minor UI modifications</li>
                                 <li>Accessibility enhancements</li>

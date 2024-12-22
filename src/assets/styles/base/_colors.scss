@@ -55,15 +55,8 @@
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: only light;
   @include base-theme();
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-  &:has(body[data-theme="dark"]) {
-    color-scheme: dark;
-  }
 
   // Ability to provide smooth scroll behavior on supported browsers only.
   @media (prefers-reduced-motion: no-preference) {
