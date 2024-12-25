@@ -28,6 +28,7 @@ export function ReleaseNotes() {
                                 <li>Minor UI modifications</li>
                                 <li>Accessibility enhancements</li>
                                 <li>Implemented option drag and drop svg on to a dropzone -- BETA</li>
+                                <li>v1.3.1 - Implemented dark mode using mix-blend-mode, added vercel analytics</li>
                             </ul>
                         </div>
                     </li>

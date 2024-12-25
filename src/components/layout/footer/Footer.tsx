@@ -10,7 +10,7 @@ export function Footer() {
                     <a href='https://github.com/yoksel/url-encoder/' target='_blank' aria-label='Inspired by this vanilla JS project from Yoksel'>Inspired from Yoksel</a>
                     <div className='app-footer__right'>
                         <Link to={'/releasenotes'} aria-label='Release Notes'>Release Notes</Link>
-                        <p>version v1.3</p>
+                        <p>version v1.3.1</p>
                     </div>
                 </div>
             </div>
