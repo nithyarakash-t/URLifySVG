@@ -1,8 +1,27 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import './Themetoggle.scss';
 
 export function Themetoggle() {
     const [darkTheme, setDarkTheme] = useState(false);
+    const overlay = useRef<HTMLDivElement | null>(null);
+
+    // useEffect(()=>{
+    //     const overlayNode = (overlay.current as HTMLElement);
+    //     overlayNode.addEventListener('transitionend', handleTransitionEnd);
+    //     return ()=>{
+    //         overlayNode.addEventListener('transitionend', handleTransitionEnd);
+    //     }
+    // }, []);
+
+    // function handleTransitionEnd() {
+    //     const overlayNode = (overlay.current as HTMLElement);
+    //     if(darkTheme) {
+    //         overlayNode.classList.add('-square');
+    //     }
+    //     else {
+    //         overlayNode.classList.remove('-square');
+    //     }
+    // }
 
     function toggle() {
         setDarkTheme(!darkTheme);
@@ -29,7 +48,7 @@ export function Themetoggle() {
                     </g>
                 </svg>
             </button>
-            <div id="theme_switch" className={`cc-themetoggle__overlay ${darkTheme ? '-open' : ''}`}></div>
+            <div ref={overlay} id="theme_switch" className={`cc-themetoggle__overlay ${darkTheme ? '-open' : ''}`}></div>
         </>
     )
 }

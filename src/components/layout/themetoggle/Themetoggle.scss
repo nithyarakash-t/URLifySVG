@@ -27,7 +27,18 @@
       + .cc-themetoggle__button {
         background-color: aquamarine;
       }
+
+      @media (min-width: 2200px) {
+        scale: 200;
+      }
+
+      @media (min-width: 3000px) {
+        scale: 300;
+      }
     }
+    // &.-square {
+    //   border-radius: 0;
+    // }
   }
   &__button {
     @include themetoggle-theme();

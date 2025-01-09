@@ -2,7 +2,7 @@ Priorities
 
 -- language support
 -- SEO
--- Fix theme toggle issues
+-- Fix theme toggle issues -- done -- pending extend overlay post animation completion
 -- improve UX, colors
 -- anchor styling
 -- Google / Github sign in and supabase ?!
