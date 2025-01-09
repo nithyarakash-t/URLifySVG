@@ -1,0 +1,46 @@
+export const releaseNotes = [
+    {
+        version: "1.4.1",
+        date: "22.12.2024",
+        desc: [
+            "Changed color scheme to only light and added dark theme via mix blend mode",
+            "1.4.1 - 09.01.25 - Fixes to themetoggle",
+        ]
+    },
+    {
+        version: "1.3",
+        date: "06.12.2024",
+        desc: [
+           "Minor UI modifications",
+           "Accessibility enhancements",
+           "Implemented option drag and drop svg on to a dropzone -- BETA",
+           "v1.3.1 - Implemented dark mode using mix-blend-mode, added vercel analytics",
+        ]
+    },
+    {
+        version: "1.2",
+        date: "04.12.2024",
+        desc: [
+            "Added favicon",
+            "Implemented option to choose external quote",
+            "Implemented option to load example",
+            "Implemented copy to clipboard option"
+        ]
+    },
+    {
+        version: "1.1",
+        date: "03.12.2024",
+        desc: [
+            "Implemented decode",
+        ]
+    },
+    {
+        version: "1.0",
+        date: "02.12.2024",
+        desc: [
+            "MVP deployed",
+            "Implemented Encode",
+            "Added multi colour background to vuew SVG"
+        ]
+    },
+]

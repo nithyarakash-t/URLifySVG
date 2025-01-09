@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Releasenotes.scss';
+import { releaseNotes } from './release-notes';
 
 export function ReleaseNotes() {
     return (
@@ -13,54 +14,19 @@ export function ReleaseNotes() {
                     <h2 className="app-releasenotes__title">Release Notes</h2>
                 </div>
                 <ol className="app-releasenotes__list">
-                    <li>
-                        <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
-                            <h3 id='releasenote_v_1.4'>Version 1.4 - 22.12.2024</h3>
-                            <ul>
-                                <li>Changed color scheme to only light and added dark theme via mix blend mode</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
-                            <h3 id='releasenote_v_1.3'>Version 1.3 - 05.12.2024</h3>
-                            <ul>
-                                <li>Minor UI modifications</li>
-                                <li>Accessibility enhancements</li>
-                                <li>Implemented option drag and drop svg on to a dropzone -- BETA</li>
-                                <li>v1.3.1 - Implemented dark mode using mix-blend-mode, added vercel analytics</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
-                            <h3 id='releasenote_v_1.2'>Version 1.2 - 04.12.2024</h3>
-                            <ul>
-                                <li>Added favicon</li>
-                                <li>Implemented option to choose external quote</li>
-                                <li>Implemented option to load example</li>
-                                <li>Implemented copy to clipboard option</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.2">
-                            <h3 id='releasenote_v_1.1'>Version 1.1 - 03.12.2024</h3>
-                            <ul>
-                                <li>Implemented decode</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="app-releasenotes__group" role="group" aria-labelledby="releasenote_v_1.1">
-                            <h3 id='releasenote_v_1.1'>Version 1.0 - 02.12.2024</h3>
-                            <ul>
-                                <li>MVP deployed</li>
-                                <li>Implemented Encode</li>
-                                <li>Added multi colour background to vuew SVG</li>
-                            </ul>
-                        </div>
-                    </li>
+
+                    {releaseNotes.map((item,index)=>{
+                        return <li key={index}>
+                            <div className="app-releasenotes__group" role="group" aria-labelledby={"releasenote_v_" + item.version}>
+                                <h3 id={"releasenote_v_" + item.version}>Version {item.version} - {item.date}</h3>
+                                <ul>
+                                    {item.desc.map((cont, ind)=>{
+                                        return <li key={ind}>{cont}</li>
+                                    })}
+                                </ul>
+                            </div>
+                        </li>
+                    })}
                 </ol>
             </div>
         </section>
