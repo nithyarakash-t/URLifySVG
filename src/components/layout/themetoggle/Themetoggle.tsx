@@ -5,14 +5,6 @@ export function Themetoggle() {
     const [darkTheme, setDarkTheme] = useState(false);
     const overlay = useRef<HTMLDivElement | null>(null);
 
-    // useEffect(()=>{
-    //     const overlayNode = (overlay.current as HTMLElement);
-    //     overlayNode.addEventListener('transitionend', handleTransitionEnd);
-    //     return ()=>{
-    //         overlayNode.addEventListener('transitionend', handleTransitionEnd);
-    //     }
-    // }, []);
-
     // function handleTransitionEnd() {
     //     const overlayNode = (overlay.current as HTMLElement);
     //     if(darkTheme) {
@@ -27,7 +19,7 @@ export function Themetoggle() {
         setDarkTheme(!darkTheme);
     }
     return (
-        <>
+        <>  
             <button type="button" className="cc-themetoggle__button" aria-controls="theme_switch"
             aria-label="Toggle theme" aria-expanded={darkTheme} onClick={toggle}>
             <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
