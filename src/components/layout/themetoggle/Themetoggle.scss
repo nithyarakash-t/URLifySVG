@@ -18,7 +18,7 @@
     pointer-events: none;
     transition: scale 0.5s ease, background-color 0.5s ease;
     scale: 1;
-    z-index: 99999;
+    z-index: 9;
     background-color: #000;
 
     &.-open {
@@ -47,7 +47,7 @@
     border-radius: 50%;
     background-color: transparent;
     cursor: pointer;
-    z-index: 999999;
+    z-index: 999;
     border: 0;
     display: grid;
     place-items: center;

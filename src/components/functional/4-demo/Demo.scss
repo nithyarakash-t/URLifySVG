@@ -19,7 +19,7 @@
       --radio-fill: #fff;
       display: inline-flex;
       position: relative;
-      z-index: 99999;
+      z-index: 99;
       &:nth-child(2) {
         border-color: light-dark(#000, #000);
       }
