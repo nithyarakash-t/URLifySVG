@@ -1,9 +1,16 @@
 export const releaseNotes = [
     {
-        version: "1.4.1",
+        version: "1.4.2",
+        date: "18.01.2024",
+        desc: [
+            "Bugfix - z-index bug fix on demo component",
+        ]
+    },
+    {
+        version: "1.4",
         date: "22.12.2024",
         desc: [
-            "Changed color scheme to only light and added dark theme via mix blend mode",
+            "1.4 - Changed color scheme to only light and added dark theme via mix blend mode",
             "1.4.1 - 09.01.25 - Fixes to themetoggle",
         ]
     },
