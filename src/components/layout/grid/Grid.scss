@@ -1,32 +1,5 @@
 .app-main {
   &__radio {
-    // & {
-    //   color: light-dark(#0f73dd, #bb86fc);
-    //   text-decoration: underline;
-    //   display: inline-block;
-    //   position: relative;
-    //   cursor: pointer;
-    //   &:hover,
-    //   &:focus-within {
-    //     color: light-dark(#a100ff, red);
-    //   }
-    //   &:has(input:active) {
-    //     outline: 1px solid;
-    //   }
-    //   > input {
-    //     appearance: none;
-    //     height: 1px;
-    //     aspect-ratio: 1/1;
-    //     position: absolute;
-    //     outline: none;
-    //   }
-    //   &:has(input:checked) {
-    //     color: light-dark(#000, #fff);
-    //     pointer-events: none;
-    //     text-decoration: none;
-    //   }
-    // }
-
     & {
         position: relative;
         display: inline-flex;
@@ -37,18 +10,6 @@
             margin-left: 0.5rem;
         }
     }
-
-    // &:not(:nth-of-type(1)) {
-    //     margin-left: 0.5rem;
-    //     &::before {
-    //         content: '/';
-    //         position: absolute;
-    //         inset: 50% auto auto 0;
-    //         display: inline-block;
-    //         line-height: 1;
-    //         translate: -0.625rem -50%;
-    //     }
-    // }
   }
   &__grid {
     display: grid;
@@ -76,6 +37,11 @@
     }
   }
   &__head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 2rem 0 1rem;
     border-top: 1px solid var(--color-base-border);
   }

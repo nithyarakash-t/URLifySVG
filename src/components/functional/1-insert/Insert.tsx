@@ -26,7 +26,7 @@ export function Insert({input, handlerFunction}
     }
 
     /** Load example to Insert textarea */
-    function handleLinkClick() {
+    function loadExample() {
         handlerFunction(svg);
     }
 
@@ -63,7 +63,7 @@ export function Insert({input, handlerFunction}
             <div className="app-group__head">
                 <h2 className="app-group__title" id="section_insert_title">Insert SVG:</h2>
                 <button type="button" className="linkbutton" aria-label="Load an example"
-                onClick={handleLinkClick}>Example</button>
+                onClick={loadExample}>Example</button>
             </div>
             <div className="app-group__body" id="insert-body">
                 <textarea id="app_insert_svg" name="app_insert_svg" spellCheck="false"

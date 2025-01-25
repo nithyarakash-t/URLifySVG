@@ -5,6 +5,7 @@ import { Readyforcss } from "../../functional/3-readyforcss/Readyforcss";
 import { Demo } from "../../functional/4-demo/Demo";
 import { addNameSpace, encodeSVG } from "./helpers";
 import "./Grid.scss";
+import { Flyout } from "../../storage/flyout/Flyout";
 
 export function Grid() {
     const [encodeInput, setEncodeInput] = useState('');
@@ -51,7 +52,6 @@ export function Grid() {
                     <div className="app-main__quoteselection" role="group" aria-labelledby="app_main_quoteselection_title">
                         <p id="app_main_quoteselection_title">External quotes:</p>
 
-                        {/* change to radio */}
                         <label className="app-main__radio">
                             <input type="radio" name="quotation" id="single" checked={quoteType === 'single'}
                             onChange={()=>handleRadioChange('single')}/>
@@ -62,8 +62,11 @@ export function Grid() {
                             onChange={()=>handleRadioChange('double')}/>
                             <span>double</span>
                         </label>
-                        {/* <a href="#" className="app-main__quotelink">single</a> */}
-                        {/* <a href="#" className="app-main__quotelink">double</a> */}
+                    </div>
+                    <div className="app-main__flyoutcontainer">
+                        { 
+                        //resultCss 
+                        true && <Flyout/> }
                     </div>
                 </div>
                 <div className="app-main__grid">
