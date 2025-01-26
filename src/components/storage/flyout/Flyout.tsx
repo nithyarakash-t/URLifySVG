@@ -1,35 +1,34 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Flyout.scss';
 
 export function Flyout() {
-    const dialog = useRef(null);
-    let dialogRef:HTMLDialogElement;
+    const [open, setOpen] = useState(false);
+    const dialogRef = useRef<HTMLDialogElement>(null);
 
     useEffect(()=>{
-        dialogRef = (dialog.current as unknown as HTMLDialogElement);
-        return () => {
-            dialogRef.removeEventListener('animationend', cleanup);
+        if(open) {
+            dialogRef.current?.showModal();
+            document.body.style.setProperty('overflow', 'hidden');
         }
-    });
+        else {
+            dialogRef.current?.close();
+            document.body.style.removeProperty('overflow');
+        }
+    }, [open])
 
     function openFlyout() {
-        document.body.style.setProperty('overflow', 'hidden');
-        dialogRef.showModal();
+        setOpen(true);
     }
     function closeFlyout() {
-        dialogRef.close();
-        dialogRef.addEventListener('animationend', cleanup);
-        document.body.style.removeProperty('overflow');
+        setOpen(false);
+
     }
 
-    function cleanup() {
-        console.info('flyout cleanup')
-    }
     return (
         <>
-            <button type='button' onClick={openFlyout}>Flyout</button>
+            <button type='button' onClick={(openFlyout)}>Flyout</button>
 
-            <dialog ref={dialog} className="app-flyout__wrap" id="app-flyout" aria-labelledby="app-flyout-title">
+            <dialog ref={dialogRef} className="app-flyout__wrap" id="app-flyout" aria-labelledby="app-flyout-title">
                 <div className="app-flyout__container">
                     <div className="app-flyout__header">
                         <button type="button" autoFocus onClick={closeFlyout}>close</button>

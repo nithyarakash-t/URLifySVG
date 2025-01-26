@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Insert } from "../../functional/1-insert/Insert";
 import { Encoded } from "../../functional/2-encoded/Encoded";
 import { Readyforcss } from "../../functional/3-readyforcss/Readyforcss";
@@ -11,8 +11,17 @@ export function Grid() {
     const [encodeInput, setEncodeInput] = useState('');
     const [decodeInput, setDecodeInput] = useState('');
     const [quoteType, setQuoteType] = useState('double');
+    const [validImg, setValidImg] = useState(false);
 
     const resultCss = encodeInput.length === 0 ? '' : `url(${quoteType === 'double' ? '"' : "'"}data:image/svg+xml,${decodeInput}${quoteType === 'double' ? '"' : "'"})`;
+
+    useEffect(()=>{
+        const validImageUrl = `data:image/svg+xml,${decodeInput}`;
+        const img = new Image();
+        img.src = validImageUrl;
+        img.onload = () => {  console.log('valid'); setValidImg(true); };
+        img.onerror = () => { console.log('invalid'); setValidImg(false) };
+    },[encodeInput, decodeInput, quoteType])
 
     /**Encode - start*/
     function handleEncodeChange(input:string) {
@@ -63,10 +72,12 @@ export function Grid() {
                             <span>double</span>
                         </label>
                     </div>
-                    <div className="app-main__flyoutcontainer">
-                        { 
-                        //resultCss 
-                        true && <Flyout/> }
+                    <div className="app-main__head-right">
+                        {
+                            validImg &&
+                            <button type="button" aria-label="add">Add</button>
+                        }
+                        <Flyout/>
                     </div>
                 </div>
                 <div className="app-main__grid">
