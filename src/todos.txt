@@ -1,20 +1,24 @@
 Priorities
+-- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
 
--- language support
--- SEO
--- Fix theme toggle issues -- done -- pending extend overlay post animation completion
+-- Fix theme toggle issues -- done 
+    -- overlay revert is buggy in mobile (refer how imabi . org do it)
+    -- pending extend overlay post animation completion
 -- improve UX, colors
 -- anchor styling
 -- Google / Github sign in and supabase ?!
--- cookies/cache and local/ session storage
+-- cookies/cache and local/ session storage + supabase
 -- dark theme for favicon
 
--- v2.0
+-- v3.0
+
+-- language support
+-- SEO
 -- container query
 -- dark mode (with after dark neon sign)
 -- accessibility (through usability testing)
 
--- v3.0
+-- v4.0
 -- malformed URI sequence handle / alert
 
 Completed
