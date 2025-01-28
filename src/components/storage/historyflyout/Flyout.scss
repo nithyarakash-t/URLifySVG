@@ -31,26 +31,52 @@
 }
 
 .app-flyout {
+  &__search {
+
+  }
   &__list {
     li {
-      div {
-        flex: 0 0 1.5rem;
-        width: 1.5rem;
-        height: 1.5rem;
-        img {
-          height: 100%;
-          width: 100%;
+      & .-details {
+        > div {
+          flex: 0 0 1.5rem;
+          width: 1.5rem;
+          height: 1.5rem;
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+        > span {
+          display: inline-block;
+          flex: 1;
+        }
+        & {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
         }
       }
-      span {
-        display: inline-block;
-        // text-overflow: ellipsis;
-        // white-space: nowrap;
-        // overflow: hidden;
+      & .-controls {
+        > button {
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          height: 1.5rem;
+          width: 1.5rem;
+          svg {
+            height: 100%;
+            width: 100%;
+          }
+        }
+        flex: 0 0 auto;
+        display: flex;
+        gap: 1rem;
       }
       & {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
+        justify-content: space-between;
         gap: 1rem;
       }
     }
@@ -66,13 +92,33 @@
     overflow-y: auto;
     scrollbar-gutter: stable;
   }
+  &__search {
+    grid-column: 1/-1;
+  }
   &__header {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    padding: 2rem var(--_padding-h);
-    flex: 0 0 auto;
+    > button {
+      margin-left: auto;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      height: 1.5rem;
+      width: 1.5rem;
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    > h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    & {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 2rem var(--_padding-h);
+      flex: 0 0 auto;
+      gap: 1rem;
+    }
   }
 
   &__container {

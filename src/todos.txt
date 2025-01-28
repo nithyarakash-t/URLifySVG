@@ -1,6 +1,9 @@
 Priorities
--- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
+IMPORTANT -- FINISH THE LOCAL STORAGE - UPDATE UI - Publish and then work on sign in and supabase
 
+-- Dropdown with sample ?!
+-- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
+-- replace all svgs with background / mask
 -- Fix theme toggle issues -- done 
     -- overlay revert is buggy in mobile (refer how imabi . org do it)
     -- pending extend overlay post animation completion

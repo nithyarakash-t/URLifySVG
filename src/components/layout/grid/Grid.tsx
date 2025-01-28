@@ -6,7 +6,7 @@ import { Demo } from "../../functional/4-demo/Demo";
 import { addNameSpace, encodeSVG } from "./helpers";
 import "./Grid.scss";
 import { Modal } from "../../storage/savemodal/Modal";
-import { Datum } from "../../storage/data/storage";
+import { Datum } from "../../storage/data/storageContext";
 
 export function Grid() {
     const [encodeInput, setEncodeInput] = useState('');
@@ -21,8 +21,8 @@ export function Grid() {
         const validImageUrl = `data:image/svg+xml,${decodeInput}`;
         const img = new Image();
         img.src = validImageUrl;
-        img.onload = () => {  console.log('valid'); setValidImg(true); };
-        img.onerror = () => { console.log('invalid'); setValidImg(false) };
+        img.onload = () => {  console.info('Valid svg -- You may save if needed'); setValidImg(true); };
+        img.onerror = () => { console.warn('Invalid svg'); setValidImg(false) };
     },[encodeInput, decodeInput, quoteType])
 
     /**Encode - start*/
