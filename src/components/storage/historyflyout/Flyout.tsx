@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import './Flyout.scss';
 import { useStorage } from '../data/storageContext';
 
-export function Flyout({setEncodeInput}
-    :{readonly setEncodeInput:(input:string)=>void}) {
+export function Flyout({loadEncodeInput}
+    :{readonly loadEncodeInput:(input:string)=>void}) {
     const dialogRef = useRef<HTMLDialogElement>(null);
     const [open, setOpen] = useState(false);
     const { localHistory, deleteFromHistory } = useStorage();
@@ -20,7 +20,7 @@ export function Flyout({setEncodeInput}
 
     //load an item to insert textarea
     function handleLoad(svg:string) {
-        setEncodeInput(svg);
+        loadEncodeInput(svg);
         closeFlyout();
     }
 
@@ -85,7 +85,7 @@ export function Flyout({setEncodeInput}
                                                     <button type='button' aria-label='Load Item' title='Load item back' onClick={()=>handleLoad(item.svg)}>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 6-4-4-4 4"/><path d="M12 2v8"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg>
                                                     </button>
-                                                    <button type='button' aria-label='Edit Item' title='Yet to be implemented'>
+                                                    <button type='button' aria-label='Edit Item' title='Yet to be implemented' disabled={true}>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
                                                     </button>
                                                     <button type='button' aria-label='Delete' onClick={()=>handleDelete(ind)}>

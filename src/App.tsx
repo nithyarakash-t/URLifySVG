@@ -5,12 +5,10 @@ import { Footer } from "./components/layout/footer/Footer"
 import { Grid } from "./components/layout/grid/Grid"
 import { ReleaseNotes } from "./components/layout/release/ReleaseNotes";
 import { Themetoggle } from "./components/layout/themetoggle/Themetoggle";
-import { Flyout } from "./components/storage/historyflyout/Flyout";
+// import { Flyout } from "./components/storage/historyflyout/Flyout";
 import { StorageProvider } from "./components/storage/data/storageContext";
-import { useState } from "react";
-
 function App() {
-  const [encodeInput, setEncodeInput] = useState('');
+  
 
   return (
     <Router>
@@ -22,10 +20,9 @@ function App() {
                 URLifySVG
                 <span>URL Encoder for SVG</span>
               </h1>
-              <Flyout setEncodeInput={setEncodeInput}/>
             </div>
               <Routes>
-                <Route path="/" element={<Grid encodeInput={encodeInput} setEncodeInput={setEncodeInput}/>}></Route>
+                <Route path="/" element={<Grid/>}></Route>
                 <Route path='/releasenotes' element={<ReleaseNotes/>}></Route>
               </Routes>
           </main>

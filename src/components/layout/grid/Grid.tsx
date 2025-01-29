@@ -7,10 +7,10 @@ import { addNameSpace, encodeSVG } from "./helpers";
 import "./Grid.scss";
 import { Modal } from "../../storage/savemodal/Modal";
 import { Datum } from "../../storage/data/storageContext";
+import { Flyout } from "../../storage/historyflyout/Flyout";
 
-export function Grid({encodeInput, setEncodeInput}
-    :{readonly encodeInput:string, readonly setEncodeInput:(input:string)=>void}) {
-    // const [encodeInput, setEncodeInput] = useState('');
+export function Grid() {
+    const [encodeInput, setEncodeInput] = useState('');
     const [decodeInput, setDecodeInput] = useState('');
     const [quoteType, setQuoteType] = useState('double');
     const [validImg, setValidImg] = useState(false);
@@ -82,10 +82,11 @@ export function Grid({encodeInput, setEncodeInput}
                             validImg &&
                             <Modal svg={encodeInput as Datum['svg']}/>
                         }
+                        <Flyout loadEncodeInput={handleEncodeChange}/>
                     </div>
                 </div>
                 <div className="app-main__grid">
-                    <Insert input={encodeInput} handlerFunction={handleEncodeChange}/>
+                    <Insert encodeInput={encodeInput} handleEncodeChange={handleEncodeChange}/>
                     <Encoded input={decodeInput} handlerFunction={handleDecodeChange}/>
                     <Readyforcss input={resultCss}/>
                     <Demo image={resultCss}/>
