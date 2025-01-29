@@ -63,6 +63,7 @@
           padding: 0;
           height: 1.5rem;
           width: 1.5rem;
+          color: inherit;
           svg {
             height: 100%;
             width: 100%;
@@ -103,6 +104,7 @@
       padding: 0;
       height: 1.5rem;
       width: 1.5rem;
+      color: inherit;
       svg {
         height: 100%;
         width: 100%;
@@ -128,8 +130,9 @@
     flex-direction: column;
     position: absolute;
     inset: 0 0 0 auto;
-    background-color: #fff;
+    background-color: light-dark(#fff, #000);
     width: var(--_width);
+    box-shadow: inset 1px 0px 0 light-dark(transparent, hsla(0, 0%, 100%, 0.8));
   }
 
   &__wrap {
@@ -143,23 +146,37 @@
     max-width: none;
     max-height: none;
     z-index: 1000;
+    border: none;
     background-color: transparent;
+    color: light-dark(#000, #fff);
 
     &[open] {
       &::backdrop {
-        background-color: rgba(0, 0, 0, 0.15);
+        background-color: rgba(0, 0, 0, 0.45);
       }
     }
   }
   &__control {
-    background-color: transparent;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8'/%3E%3Cpath d='M3 3v5h5'/%3E%3Cpath d='M12 7v5l4 2'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
     border: none;
     padding: 0;
     height: 1.5rem;
     width: 1.5rem;
-    svg {
-      height: 100%;
-      width: 100%;
+  }
+}
+
+
+html {
+  &[data-theme="light"] {
+    .app-flyout__wrap {
+      color-scheme: only light;
+    }
+  }
+  &[data-theme="dark"] {
+    .app-flyout__wrap {
+      color-scheme: only dark;
     }
   }
 }

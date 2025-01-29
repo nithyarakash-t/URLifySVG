@@ -22,6 +22,19 @@ export function Modal({svg}:{readonly svg:Datum['svg']}) {
         }
     }, [open])
 
+    useEffect(()=>{
+        function handleKeyDown(e:KeyboardEvent) {
+            if(e.key === 'Escape') {
+                closeModal();
+            }
+        }
+        window.addEventListener('keydown', handleKeyDown);
+
+        return ()=>{
+            window.removeEventListener('keydown', handleKeyDown);
+        }
+    }, [])
+
     //Modal methods - start
     function openModal() {
         setOpen(true);
@@ -29,7 +42,6 @@ export function Modal({svg}:{readonly svg:Datum['svg']}) {
     function closeModal() {
         setOpen(false);
         resetForm();
-
     }
     //Modal methods-end
 
@@ -71,20 +83,20 @@ export function Modal({svg}:{readonly svg:Datum['svg']}) {
 
     return (
         <>
-            <button type='button' onClick={openModal}>Save</button>
+            <button type='button' className='app-modal__control' onClick={openModal} aria-label='Save'></button>
             
             <dialog ref={dialogRef} className="app-modal__wrap" id="app-modal" aria-labelledby="app-modal-title">
                 <div className="app-modal__container">
                     <div className="app-modal__header">
-                        <button type="button" className='app-modal__close' autoFocus onClick={closeModal} aria-label='Close'></button>
+                        <button type="button" className='app-modal__close' onClick={closeModal} aria-label='Close'></button>
                         <h2 className='app-modal__title' id="app-modal-title">Save</h2>
                     </div>
                     <div className="app-modal__body">
                         <form ref={formRef} id='app-savemodal-form' className='app-modal__form'
                         onSubmit={handleFormSubmit}>
                             <label className='app-modal__input'>
-                                <input id='name' name='name' required type='text' 
-                                placeholder='Min 3 a-z | 0-9, _ are allowed | Max 30' 
+                                <input autoFocus id='name' name='name' required type='text' 
+                                placeholder='a-z0-9_ are allowed | min. 3 a-z | max 30 chars' 
                                 aria-label='Enter name - 3-30 characters, lowercase a-z, 0-9, and unsercores only. Ensure to include atleast 3 a-z' 
                                 pattern='^(?=(.*[a-z]){3})[a-z0-9_]{3,30}' //minLength={3} maxLength={30}                                
                                 />

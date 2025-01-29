@@ -1,6 +1,9 @@
 Priorities
 IMPORTANT -- FINISH THE LOCAL STORAGE - UPDATE UI - Publish and then work on sign in and supabase
 
+-- localStorage disclaimer , option to completely clear out local storage
+    with confirmation modal
+-- confirmation modal for edit, delete and clear (will require reusable dialog component)
 -- Dropdown with sample ?!
 -- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
 -- replace all svgs with background / mask
