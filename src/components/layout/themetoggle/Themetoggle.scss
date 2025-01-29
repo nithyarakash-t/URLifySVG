@@ -59,11 +59,11 @@
       pointer-events: none;
       & {
         .sun-beams {
-          stroke: var(--themeswitch-icon-color);
+          stroke: var(--_themeswitch-icon-color);
           stroke-width: 2px;
         }
         > :is(.moon, .sun) {
-          fill: var(--themeswitch-icon-color);
+          fill: var(--_themeswitch-icon-color);
         }
 
         > :is(.moon, .sun, .sun-beams) {
@@ -138,10 +138,10 @@
     &:focus-visible {
       .sun-and-moon {
         > :is(.moon, .sun) {
-          fill: var(--themeswitch-icon-color-active);
+          fill: var(--_themeswitch-icon-color-active);
         }
         .sun-beams {
-          stroke: var(--themeswitch-icon-color-active);
+          stroke: var(--_themeswitch-icon-color-active);
         }
       }
     }
