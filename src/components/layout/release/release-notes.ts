@@ -1,9 +1,10 @@
 export const releaseNotes = [
     {
-        version: "2.0.0",
+        version: "2.0.1",
         date: "29.01.2024",
         desc: [
             "Feature - Added provision to save icons in local browser history",
+            "2.0.1 - Bugfix on a custom property name in themetoggle"
         ]
     },
     {
