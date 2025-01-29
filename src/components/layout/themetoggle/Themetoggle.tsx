@@ -1,10 +1,18 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import './Themetoggle.scss';
 
 export function Themetoggle() {
     const [darkTheme, setDarkTheme] = useState(false);
     const overlay = useRef<HTMLDivElement | null>(null);
 
+    useEffect(()=>{
+        if(darkTheme) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    }, [darkTheme])
     // function handleTransitionEnd() {
     //     const overlayNode = (overlay.current as HTMLElement);
     //     if(darkTheme) {

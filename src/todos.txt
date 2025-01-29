@@ -1,20 +1,30 @@
 Priorities
+IMPORTANT -- FINISH THE LOCAL STORAGE - UPDATE UI - Publish and then work on sign in and supabase
 
--- language support
--- SEO
--- Fix theme toggle issues -- done -- pending extend overlay post animation completion
+-- localStorage disclaimer , option to completely clear out local storage
+    with confirmation modal
+-- confirmation modal for edit, delete and clear (will require reusable dialog component)
+-- Dropdown with sample ?!
+-- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
+-- replace all svgs with background / mask
+-- Fix theme toggle issues -- done 
+    -- overlay revert is buggy in mobile (refer how imabi . org do it)
+    -- pending extend overlay post animation completion
 -- improve UX, colors
 -- anchor styling
 -- Google / Github sign in and supabase ?!
--- cookies/cache and local/ session storage
+-- cookies/cache and local/ session storage + supabase
 -- dark theme for favicon
 
--- v2.0
+-- v3.0
+
+-- language support
+-- SEO
 -- container query
 -- dark mode (with after dark neon sign)
 -- accessibility (through usability testing)
 
--- v3.0
+-- v4.0
 -- malformed URI sequence handle / alert
 
 Completed
