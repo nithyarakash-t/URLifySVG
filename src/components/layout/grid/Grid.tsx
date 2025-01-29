@@ -8,8 +8,9 @@ import "./Grid.scss";
 import { Modal } from "../../storage/savemodal/Modal";
 import { Datum } from "../../storage/data/storageContext";
 
-export function Grid() {
-    const [encodeInput, setEncodeInput] = useState('');
+export function Grid({encodeInput, setEncodeInput}
+    :{readonly encodeInput:string, readonly setEncodeInput:(input:string)=>void}) {
+    // const [encodeInput, setEncodeInput] = useState('');
     const [decodeInput, setDecodeInput] = useState('');
     const [quoteType, setQuoteType] = useState('double');
     const [validImg, setValidImg] = useState(false);
