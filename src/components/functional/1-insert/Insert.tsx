@@ -2,8 +2,8 @@ import { FormEvent, useEffect, useRef, DragEvent } from "react";
 import "./Insert.scss";
 import { svg } from "../../layout/grid/helpers";
 
-export function Insert({input, handlerFunction}
-    :{readonly input:string, readonly handlerFunction:(input:string)=>void}) {
+export function Insert({encodeInput, handleEncodeChange}
+    :{readonly encodeInput:string, readonly handleEncodeChange:(encodeInput:string)=>void}) {
 
     const dropzone = useRef<HTMLDivElement>(null);
     const handleDragOver_eh = handleDragOver;
@@ -19,15 +19,15 @@ export function Insert({input, handlerFunction}
         }
     }, [handleDragOver_eh, handleDragEnd_eh])
 
-    /** Handle insert input */
+    /** Handle insert encodeInput */
     function changeHandler(event:FormEvent) {
         const target = event.currentTarget as HTMLTextAreaElement;
-        handlerFunction(target.value);
+        handleEncodeChange(target.value);
     }
 
     /** Load example to Insert textarea */
     function loadExample() {
-        handlerFunction(svg);
+        handleEncodeChange(svg);
     }
 
     /** Drag start handler */
@@ -53,7 +53,7 @@ export function Insert({input, handlerFunction}
         if (file?.type === `image/svg+xml`) {
             reader.readAsText(file);
             reader.onload = () => {
-                handlerFunction(reader.result as string);
+                handleEncodeChange(reader.result as string);
             };
         }
     }
@@ -67,7 +67,7 @@ export function Insert({input, handlerFunction}
             </div>
             <div className="app-group__body" id="insert-body">
                 <textarea id="app_insert_svg" name="app_insert_svg" spellCheck="false"
-                value={input} 
+                value={encodeInput} 
                 aria-label="Insert SVG" aria-describedby="app_insert_foot"
                 onChange={(e)=>changeHandler(e)}></textarea>
 
