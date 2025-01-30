@@ -6,7 +6,7 @@ import { Demo } from "../../functional/4-demo/Demo";
 import { addNameSpace, encodeSVG } from "./helpers";
 import "./Grid.scss";
 import { Modal } from "../../storage/savemodal/Modal";
-import { Datum } from "../../storage/data/storageContext";
+import { Datum, StorageProvider } from "../../storage/data/storageContext";
 import { Flyout } from "../../storage/historyflyout/Flyout";
 
 export function Grid() {
@@ -60,38 +60,41 @@ export function Grid() {
     /**handle quotes - end */
 
     return (
-        <div className="app-main__wrap">
-            <div className="app-container">
-                <div className="app-main__head">
-                    <div className="app-main__quoteselection" role="group" aria-labelledby="app_main_quoteselection_title">
-                        <p id="app_main_quoteselection_title">External quotes:</p>
+            <div className="app-main__wrap">
+                <div className="app-container">
+                    <div className="app-main__head">
+                        <div className="app-main__quoteselection" role="group" aria-labelledby="app_main_quoteselection_title">
+                            <p id="app_main_quoteselection_title">External quotes:</p>
 
-                        <label className="app-main__radio">
-                            <input type="radio" name="quotation" id="single" checked={quoteType === 'single'}
-                            onChange={()=>handleRadioChange('single')}/>
-                            <span>single</span>
-                        </label>
-                        <label className="app-main__radio">
-                            <input type="radio" name="quotation" id="double" checked={quoteType === 'double'}
-                            onChange={()=>handleRadioChange('double')}/>
-                            <span>double</span>
-                        </label>
+                            <label className="app-main__radio">
+                                <input type="radio" name="quotation" id="single" checked={quoteType === 'single'}
+                                onChange={()=>handleRadioChange('single')}/>
+                                <span>single</span>
+                            </label>
+                            <label className="app-main__radio">
+                                <input type="radio" name="quotation" id="double" checked={quoteType === 'double'}
+                                onChange={()=>handleRadioChange('double')}/>
+                                <span>double</span>
+                            </label>
+                        </div>
+                        <StorageProvider>
+                            <div className="app-main__head-right">
+                                {
+                                    validImg &&
+                                    <Modal svg={encodeInput as Datum['svg']}/>
+                                }
+                                <Flyout loadEncodeInput={handleEncodeChange}/>
+                            </div>
+                        </StorageProvider>
                     </div>
-                    <div className="app-main__head-right">
-                        {
-                            validImg &&
-                            <Modal svg={encodeInput as Datum['svg']}/>
-                        }
-                        <Flyout loadEncodeInput={handleEncodeChange}/>
+                    <div className="app-main__grid">
+                        <Insert encodeInput={encodeInput} handleEncodeChange={handleEncodeChange}/>
+                        <Encoded input={decodeInput} handlerFunction={handleDecodeChange}/>
+                        <Readyforcss input={resultCss}/>
+                        <Demo image={resultCss}/>
                     </div>
-                </div>
-                <div className="app-main__grid">
-                    <Insert encodeInput={encodeInput} handleEncodeChange={handleEncodeChange}/>
-                    <Encoded input={decodeInput} handlerFunction={handleDecodeChange}/>
-                    <Readyforcss input={resultCss}/>
-                    <Demo image={resultCss}/>
                 </div>
             </div>
-        </div>
+
     )
 }

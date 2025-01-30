@@ -1,4 +1,8 @@
 .app-modal {
+  &__error {
+    color: #ff0000;
+    margin-top: 1rem;
+  }
   &__input {
     > input {
       flex: 1;
