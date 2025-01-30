@@ -22,13 +22,14 @@
         }
       }
       &:user-invalid {
+        outline: 1px solid var(--_color-error);
         + span::after {
           content: "Error: Enter valid value";
           position: absolute;
-          top: 50%;
+          top: calc(100% + 2px);
           display: block;
-          translate: 0 -50%;
-          right: 2.25rem;
+          translate: 0 0;
+          right: 0;
           line-height: 1;
           color: var(--_color-error);
         }
@@ -75,6 +76,7 @@
     flex: 1;
     overflow-y: auto;
     padding: 1rem var(--_padding-h) 1rem;
+    min-height: 6.5rem;
   }
   &__header {
     button {

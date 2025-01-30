@@ -86,8 +86,8 @@ export function Flyout({loadEncodeInput}
                             (
                                 <ul className='app-flyout__list'>
                                     {
-                                        filteredHistory.map((item,ind)=>{
-                                            return <li key={ind}>
+                                        filteredHistory.map((item, ind)=>{
+                                            return <li key={item.name}>
                                                 <div className='-details'>
                                                     <div>
                                                         <img src={`data:image/svg+xml;utf8,${encodeURIComponent(item.svg)}`} alt=''/>
@@ -98,10 +98,10 @@ export function Flyout({loadEncodeInput}
                                                     <button type='button' aria-label='Load Item' title='Load item back' onClick={()=>handleLoad(item.svg)}>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 6-4-4-4 4"/><path d="M12 2v8"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg>
                                                     </button>
-                                                    <button type='button' aria-label='Edit Item' title='Yet to be implemented' onClick={()=>handleEdit(ind)}>
+                                                    <button type='button' aria-label='Edit Item' onClick={()=>handleEdit(ind)}>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
                                                     </button>
-                                                    <button type='button' aria-label='Delete' onClick={()=>handleDelete(ind)}>
+                                                    <button type='button' aria-label='Delete' onClick={()=>handleDelete(ind)} disabled title='Yet to be implemented'>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
                                                     </button>
                                                 </div>

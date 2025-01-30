@@ -23,6 +23,7 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
             document.body.style.setProperty('overflow', 'hidden');
         }
         else {
+            resetForm();
             dialogRef.current?.close();
             document.body.style.removeProperty('overflow');
 
@@ -33,7 +34,7 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
     useEffect(()=>{
         function handleKeyDown(e:KeyboardEvent) {
             if(e.key === 'Escape') {
-                closeModal();
+                setOpen(false);
             }
             setError(false);
         }
@@ -45,17 +46,17 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
     }, [])
 
     //Modal methods - start
-    function openModal() {
-        setOpen(true);
-    }
-    function closeModal() {
-        setOpen(false);
-        resetForm();
-    }
+    // function openModal() {
+    //     setOpen(true);
+    // }
+    // function closeModal() {
+    //     setOpen(false);
+    //     resetForm();
+    // }
     //Modal methods-end
 
     //Form methods - start
-    // add regex on form to only allow lowercase a-z 0-9 and -
+    // DONE - add regex on form to only allow lowercase a-z 0-9 and _
     function handleFormSubmit(e:FormEvent) {
         e.preventDefault();
         const formData = new FormData(e.target as HTMLFormElement);
@@ -82,7 +83,7 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
  
 
         if(flag) { //successful addition
-            closeModal();
+            setOpen(false);
         }
         else { //duplicate name, show error
             setError(true);
@@ -97,12 +98,12 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
         <>
             {
                 mode === 'add' &&
-                <button type='button' className='app-modal__control' onClick={openModal} aria-label='Save'></button>
+                <button type='button' className='app-modal__control' onClick={()=>setOpen(true)} aria-label='Save'></button>
             }
             <dialog ref={dialogRef} className="app-modal__wrap" id="app-modal" aria-labelledby="app-modal-title">
                 <div className="app-modal__container">
                     <div className="app-modal__header">
-                        <button type="button" className='app-modal__close' onClick={closeModal} aria-label='Close'></button>
+                        <button type="button" className='app-modal__close' onClick={()=>setOpen(false)} aria-label='Close'></button>
                         <h2 className='app-modal__title' id="app-modal-title">
                             {mode === 'add' ? 'Add' : "Edit" }
                         </h2>
@@ -132,7 +133,7 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
                         }
                     </div>
                     <div className='app-modal__footer'>
-                        <button type='button' aria-label='cancel' onClick={closeModal}>Cancel</button>
+                        <button type='button' aria-label='cancel' onClick={()=>setOpen(false)}>Cancel</button>
                         <button type='submit' form='app-savemodal-form' aria-label='submit'>Submit</button>
                     </div>
                 </div>

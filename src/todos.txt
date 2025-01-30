@@ -34,7 +34,8 @@ Completed
 -- dropzone, but check for bugs
 
 
-
+Queries
+-- Is there an equivalent in react for @Output from angular ?? (Application - Confirmation dialog)
 Queries on useContext
 -- https://stackoverflow.com/questions/51504506/too-many-react-context-providers
 -- https://stackoverflow.com/questions/58474027/is-it-possible-to-use-the-same-context-provider-on-multiple-components
