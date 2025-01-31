@@ -27,13 +27,17 @@ export function Flyout({loadEncodeInput}
     //load an item to insert textarea
     function handleLoad(svg:string) {
         loadEncodeInput(svg);
-        closeFlyout();
+        setOpen(false);
     }
 
     //edit an item in history
     function handleEdit(index:number) {
         setSelectedIndex(index);
         setShowModal(true);
+    }
+
+    function handleClear() {
+
     }
     /**App logic - END */
 
@@ -50,32 +54,40 @@ export function Flyout({loadEncodeInput}
         }
     }, [open])
 
-    function openFlyout() {
-        setOpen(true);
-    }
-    function closeFlyout() {
-        setOpen(false);
+    useEffect(()=>{
+        function handleKeyDown(e:KeyboardEvent) {
+            if(e.key === 'Escape') {
+                setOpen(false);
+            }
+        }
+        window.addEventListener('keydown', handleKeyDown);
 
-    }
+        return ()=>{
+            window.removeEventListener('keydown', handleKeyDown);
+        }
+    }, [])
     //flyout ui methods - end
 
     return (
         <>
-            <button className='app-flyout__control' type='button' onClick={(openFlyout)} aria-label='Open Flyout'></button>
+            <button className='app-flyout__control' type='button' onClick={()=>setOpen(true)} aria-label='Open Flyout'></button>
 
             <dialog ref={dialogRef} className="app-flyout__wrap" id="app-flyout" aria-labelledby="app-flyout-title">
                 <div className="app-flyout__container">
                     <div className="app-flyout__header">
                         <h2 id="app-flyout-title">Flyout title</h2>
-                        <button type="button" autoFocus onClick={closeFlyout} aria-label='Close flyout'>
+                        <button type="button" autoFocus onClick={()=>setOpen(false)} aria-label='Close flyout'>
                             <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                         </button>
                         
-                        {/* Search */}
-                        <input type="search" aria-label='Search'
-                            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
-                            placeholder="Search by name" className="app-flyout__search"
-                        />
+                        {/* Search and clear */}
+                        <div className='app-flyout__header-group'>
+                            <input type="search" aria-label='Search'
+                                value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+                                placeholder="Search by name" className="app-flyout__search"
+                            />
+                            <button className='app-flyout__clear' type='button' aria-label='Clear all saved icons' onClick={()=>handleClear()}></button>
+                        </div>
                     </div>
                     <div className="app-flyout__body">
                         { localHistory.length === 0 && <p>History is empty</p> }
@@ -101,7 +113,7 @@ export function Flyout({loadEncodeInput}
                                                     <button type='button' aria-label='Edit Item' onClick={()=>handleEdit(ind)}>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
                                                     </button>
-                                                    <button type='button' aria-label='Delete' onClick={()=>handleDelete(ind)} disabled title='Yet to be implemented'>
+                                                    <button type='button' aria-label='Delete' onClick={()=>handleDelete(ind)} title='Yet to be implemented'>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
                                                     </button>
                                                 </div>

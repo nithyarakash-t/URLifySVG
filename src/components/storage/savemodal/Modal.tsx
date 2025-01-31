@@ -45,18 +45,8 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
         }
     }, [])
 
-    //Modal methods - start
-    // function openModal() {
-    //     setOpen(true);
-    // }
-    // function closeModal() {
-    //     setOpen(false);
-    //     resetForm();
-    // }
-    //Modal methods-end
-
     //Form methods - start
-    // DONE - add regex on form to only allow lowercase a-z 0-9 and _
+    // DONE - add regex on form to only allow lowercase a-z 0-9 and -
     function handleFormSubmit(e:FormEvent) {
         e.preventDefault();
         const formData = new FormData(e.target as HTMLFormElement);
@@ -114,9 +104,11 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
                             <label className='app-modal__input'>
                                 <input autoFocus id='name' name='name' required type='text'
                                 defaultValue={name}
-                                placeholder='a-z0-9_ are allowed | min. 3 a-z | max 30 chars' 
-                                aria-label='Enter name - 3-30 characters, lowercase a-z, 0-9, and unsercores only. Ensure to include atleast 3 a-z' 
-                                pattern='^(?=(.*[a-z]){3})[a-z0-9_]{3,30}' minLength={3} maxLength={30}                                
+                                placeholder='a-z0-9_ are allowed | min. 3 a-z | max. 30 chars' 
+                                aria-label='Enter name - 3-30 characters, lowercase a-z, 0-9, and underscores only. Ensure to include atleast 3 a-z' 
+                                pattern='^(?=(.*[a-z]){3})\w{3,30}' minLength={3} maxLength={30}
+                                //^[a-z0-9-]{3,30}$                                
+                                //^(?=(.*[a-z]){3})[a-z0-9-]{3,30}
                                 />
                                 <span>Name: </span>
                             </label>
@@ -141,3 +133,13 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
         </>
     )
 }
+
+//Modal methods - start
+// function openModal() {
+//     setOpen(true);
+// }
+// function closeModal() {
+//     setOpen(false);
+//     resetForm();
+// }
+//Modal methods-end

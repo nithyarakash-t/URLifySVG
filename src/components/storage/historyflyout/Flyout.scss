@@ -31,9 +31,6 @@
 }
 
 .app-flyout {
-  &__search {
-
-  }
   &__list {
     li {
       & .-details {
@@ -93,10 +90,42 @@
     overflow-y: auto;
     scrollbar-gutter: stable;
   }
+  &__clear {
+    flex: 0 0 var(--_control-height);
+    height: var(--_control-height);
+    width: var(--_control-height);
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6'/%3E%3Cpath d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2'/%3E%3Cline x1='10' x2='10' y1='11' y2='17'/%3E%3Cline x1='14' x2='14' y1='11' y2='17'/%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
+    border: none;
+    padding: 0;
+  }
   &__search {
-    grid-column: 1/-1;
+    flex: 1;
+    padding: 0.125rem 1rem 0.125rem 2rem;
+    height: 2rem;
+    border-radius: 8px;
+    border: 1px solid light-dark(#000, #fff);
   }
   &__header {
+    &-group {
+      --_control-height: 1.5rem;
+      position: relative;
+      grid-column: 1/-1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      &::before {
+        content: '';
+        height: 1rem;
+        width: 1rem;
+        background-color: light-dark(#000, #fff);
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") no-repeat center;
+        mask-size: contain;
+        position: absolute;
+        inset: calc(50% - 0.5rem) auto auto 0.5rem;
+
+      }
+    }
     > button {
       margin-left: auto;
       background-color: transparent;

@@ -1,6 +1,7 @@
 Priorities
 IMPORTANT -- FINISH THE LOCAL STORAGE - UPDATE UI - Publish and then work on sign in and supabase
 
+-- alternatives to display SVG in flyout
 -- localStorage disclaimer , option to completely clear out local storage
     with confirmation modal
 -- confirmation modal for edit, delete and clear (will require reusable dialog component)
