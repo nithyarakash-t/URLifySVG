@@ -1,10 +1,10 @@
-Priorities
-IMPORTANT -- FINISH THE LOCAL STORAGE - UPDATE UI - Publish and then work on sign in and supabase
-
--- alternatives to display SVG in flyout
+-- v2.0
+-- Priorities
+   -- IMPORTANT -- FINISH THE LOCAL STORAGE - UPDATE UI - Publish and then work on sign in and supabase
+-- Ctrl + s on Grid
 -- localStorage disclaimer , option to completely clear out local storage
     with confirmation modal
--- confirmation modal for edit, delete and clear (will require reusable dialog component)
+-- confirmation modal for delete and clear (will require reusable dialog component)
 -- Dropdown with sample ?!
 -- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
 -- replace all svgs with background / mask
@@ -12,24 +12,26 @@ IMPORTANT -- FINISH THE LOCAL STORAGE - UPDATE UI - Publish and then work on sig
     -- overlay revert is buggy in mobile (refer how imabi . org do it)
     -- pending extend overlay post animation completion
 -- improve UX, colors
--- anchor styling
--- Google / Github sign in and supabase ?!
--- cookies/cache and local/ session storage + supabase
 -- dark theme for favicon
 
 -- v3.0
 
+-- Check on alternatives to display SVG in flyout
+-- Bin ? clear after 30 days
+-- If no history to delete, dont show confirmation modal, just alert there's no history to delete
 -- language support
 -- SEO
 -- container query
 -- dark mode (with after dark neon sign)
 -- accessibility (through usability testing)
+-- Google / Github sign in and supabase ?! -- cookies/cache and local/ session storage + supabase
 
 -- v4.0
 -- malformed URI sequence handle / alert
 
 Completed
 
+-- v1.0
 -- release notes - react router -- done
 -- make release notes to a JSON
 -- dropzone, but check for bugs

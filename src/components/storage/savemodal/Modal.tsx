@@ -88,9 +88,10 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
         <>
             {
                 mode === 'add' &&
-                <button type='button' className='app-modal__control' onClick={()=>setOpen(true)} aria-label='Save'></button>
+                <button type='button' className='app-modal__control' onClick={()=>setOpen(true)} 
+                aria-label='Save' aria-controls='save-modal' aria-expanded={open}></button>
             }
-            <dialog ref={dialogRef} className="app-modal__wrap" id="app-modal" aria-labelledby="app-modal-title">
+            <dialog ref={dialogRef} className="app-modal__wrap" id="save-modal" aria-labelledby="app-modal-title">
                 <div className="app-modal__container">
                     <div className="app-modal__header">
                         <button type="button" className='app-modal__close' onClick={()=>setOpen(false)} aria-label='Close'></button>
@@ -114,7 +115,7 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
                             </label>
                         </form>
                         {error &&
-                            <p className='app-modal__error'>
+                            <p role='alert' className='app-modal__error'>
                                 {
                                     mode === 'add' ?
                                     'Name already exists, choose a diffrent name'
