@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import './Flyout.scss';
 import { useStorage } from '../data/storageContext';
 import { Modal } from '../savemodal/Modal';
-import { ConfirmModal } from '../confirmationmodal/Confirmation';
+import { ConfirmModal, ConfirmModalProps } from '../confirmationmodal/Confirmation';
 
 export function Flyout({loadEncodeInput}
     :{readonly loadEncodeInput:(input:string)=>void}) {
@@ -12,7 +12,7 @@ export function Flyout({loadEncodeInput}
     const [showEditModal, setShowEditModal] = useState(false); //control edit modal
     const [selectedIndex, setSelectedIndex] = useState<number | undefined>(undefined); //prop for edit, delete cofirmation modals
     const [showConfirmModal, setShowConfirmModal] = useState(false);
-
+    const [confirmModalProps, setConfirmModalProps] = useState<ConfirmModalProps>();
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     const {localHistory, deleteFromHistory, clearHistory} = useStorage();
@@ -25,15 +25,18 @@ export function Flyout({loadEncodeInput}
 
     //delete item from history
     function handleDelete(index:number) {
+       setConfirmModalProps({
+            id: 'app-confirm-delete',
+            title: `Delete ${localHistory[index].name}`,
+            content: `Are you sure you want to delete ${localHistory[index].name} icon?`,
+            onConfirm: () => deleteSelectedItem(index)
+        });
+
+       setShowConfirmModal(true);
+    }
+    function deleteSelectedItem(index:number) {
         deleteFromHistory(index);
     }
-    // function deleteItem() {
-    //     if(selectedIndex) {
-    //         deleteFromHistory(selectedIndex);
-    //     }
-
-    //     setSelectedIndex(undefined);
-    // }
 
     //load an item to insert textarea
     function handleLoad(svg:string) {
@@ -49,6 +52,12 @@ export function Flyout({loadEncodeInput}
 
     //Clear all
     function handleClear() {
+        setConfirmModalProps({
+            id: 'app-confirm-clear',
+            title: 'Clear History',
+            content: 'Are you sure you want to clear all saved history ?',
+            onConfirm: clearHistory
+        });
         setShowConfirmModal(true);
     }
     /**App logic - END */
@@ -150,8 +159,9 @@ export function Flyout({loadEncodeInput}
             {
                 showConfirmModal
                 &&
-                <ConfirmModal title='Clear History' content='Are you sure you want to clear history ?'
-                id='app-clear-modal' onConfirm={clearHistory} parentSetter={setShowConfirmModal} />
+                <ConfirmModal title={confirmModalProps?.title} content={confirmModalProps?.content}
+                id={confirmModalProps?.id} 
+                onConfirm={confirmModalProps?.onConfirm} parentSetter={setShowConfirmModal} />
             }
         </>
     )

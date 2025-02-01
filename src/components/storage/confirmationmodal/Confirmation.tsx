@@ -1,16 +1,23 @@
 import { useEffect, useState, useRef } from 'react';
 import './Confirmation.scss';
-type ConfirmModalProps = {readonly title?:string,
-    readonly content?:string,
-    readonly id:string,
-    readonly onConfirm?:()=>void,
-    readonly parentSetter?:React.Dispatch<React.SetStateAction<boolean>>}
 
-export function ConfirmModal({title='Confirmation',
+// Note: T serves no purpose here, added for educational purposes
+// Check historyFlyout's handleDelete to see onConfirm will be receiving an arrow fn - () => --Actual function--
+// Example - onConfirm: () => deleteSelectedItem(index)
+export type ConfirmModalProps<T = void> = {
+    readonly title?:string,
+    readonly content?:string,
+    readonly id?:string,
+    readonly onConfirm?:(param?:T)=>void,
+    readonly parentSetter?:React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export function ConfirmModal<T,>({ // Note: Even if we were using T above, it's mostly not needed here
+    title='Confirmation',
     content='Are you sure ?',
     id='app-confirm-mod',
     onConfirm,
-    parentSetter}:ConfirmModalProps) {
+    parentSetter}:ConfirmModalProps<T>) {
 
     const [open, setOpen] = useState(true);
     const dialogRef = useRef<HTMLDialogElement>(null);
