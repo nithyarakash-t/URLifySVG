@@ -4,7 +4,7 @@ import { useStorage, Datum } from "../data/storageContext";
 interface FormDataObject {
     [key: string]: string | number; // Define the type of values (string or number)
 }
-type Mode = 'add' | 'edit'
+type Mode = 'add' | 'rename'
 type ModalProps = {readonly svg:Datum['svg'], 
     readonly mode?:Mode, readonly index?:number, readonly name?:string
     readonly setShowModal?:React.Dispatch<React.SetStateAction<boolean>>}
@@ -12,10 +12,10 @@ type ModalProps = {readonly svg:Datum['svg'],
 export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalProps) {
 
     const [error, setError] = useState(false);
-    const [open, setOpen] = useState(mode === 'edit');
+    const [open, setOpen] = useState(mode === 'rename');
     const dialogRef = useRef<HTMLDialogElement>(null);
     const formRef = useRef<HTMLFormElement>(null);
-    const { addToHistory, editHistory } = useStorage();    
+    const { addToHistory, renameHistory } = useStorage();    
 
     useEffect(()=>{
         if(open) {
@@ -68,7 +68,7 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
             flag = addToHistory({ name: `${data.name}`, svg: svg });
         }
         else {
-            flag = editHistory( index as number, { name: `${data.name}`, svg: svg });
+            flag = renameHistory( index as number, { name: `${data.name}`, svg: svg });
         }
  
 
@@ -96,7 +96,7 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
                     <div className="app-modal__header">
                         <button type="button" className='app-modal__close' onClick={()=>setOpen(false)} aria-label='Close'></button>
                         <h2 className='app-modal__title' id="app-modal-title">
-                            {mode === 'add' ? 'Add' : "Edit" }
+                            {mode === 'add' ? 'Add' : "Rename" }
                         </h2>
                     </div>
                     <div className="app-modal__body">

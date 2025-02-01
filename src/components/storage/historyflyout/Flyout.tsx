@@ -9,8 +9,8 @@ export function Flyout({loadEncodeInput}
 
     const [open, setOpen] = useState(false); //control flyout state
     const [searchTerm, setSearchTerm] = useState("");
-    const [showEditModal, setShowEditModal] = useState(false); //control edit modal
-    const [selectedIndex, setSelectedIndex] = useState<number | undefined>(undefined); //prop for edit, delete cofirmation modals
+    const [showRenameModal, setShowRenameModal] = useState(false); //control rename modal
+    const [selectedIndex, setSelectedIndex] = useState<number | undefined>(undefined); //prop for rename modal
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [confirmModalProps, setConfirmModalProps] = useState<ConfirmModalProps>();
     const dialogRef = useRef<HTMLDialogElement>(null);
@@ -29,13 +29,10 @@ export function Flyout({loadEncodeInput}
             id: 'app-confirm-delete',
             title: `Delete ${localHistory[index].name}`,
             content: `Are you sure you want to delete ${localHistory[index].name} icon?`,
-            onConfirm: () => deleteSelectedItem(index)
+            onConfirm: () => deleteFromHistory(index)
         });
 
        setShowConfirmModal(true);
-    }
-    function deleteSelectedItem(index:number) {
-        deleteFromHistory(index);
     }
 
     //load an item to insert textarea
@@ -44,10 +41,10 @@ export function Flyout({loadEncodeInput}
         setOpen(false);
     }
 
-    //edit an item in history
-    function handleEdit(index:number) {
+    //rename an item in history
+    function handleRename(index:number) {
         setSelectedIndex(index);
-        setShowEditModal(true);
+        setShowRenameModal(true);
     }
 
     //Clear all
@@ -56,7 +53,7 @@ export function Flyout({loadEncodeInput}
             id: 'app-confirm-clear',
             title: 'Clear History',
             content: 'Are you sure you want to clear all saved history ?',
-            onConfirm: clearHistory
+            onConfirm: () => clearHistory
         });
         setShowConfirmModal(true);
     }
@@ -131,7 +128,7 @@ export function Flyout({loadEncodeInput}
                                                     <button type='button' aria-label='Load item' title={`Load icon back - ${item.name}`} onClick={()=>handleLoad(item.svg)}>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 6-4-4-4 4"/><path d="M12 2v8"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg>
                                                     </button>
-                                                    <button type='button' aria-label='Rename item' title={`Rename icon - ${item.name}`} onClick={()=>handleEdit(ind)}>
+                                                    <button type='button' aria-label='Rename item' title={`Rename icon - ${item.name}`} onClick={()=>handleRename(ind)}>
                                                         <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
                                                     </button>
                                                     <button type='button' aria-label='Delete item' title={`Delete icon - ${item.name}`} onClick={()=>handleDelete(ind)}>
@@ -150,9 +147,9 @@ export function Flyout({loadEncodeInput}
             </dialog>
 
             {
-                showEditModal 
+                showRenameModal 
                 && 
-                <Modal mode='edit' setShowModal={setShowEditModal}
+                <Modal mode='rename' setShowModal={setShowRenameModal}
                 index={selectedIndex} name={localHistory[selectedIndex as number].name} svg={localHistory[selectedIndex as number].svg} />    
             }
 

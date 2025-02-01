@@ -8,7 +8,7 @@ export type ConfirmModalProps<T = void> = {
     readonly title?:string,
     readonly content?:string,
     readonly id?:string,
-    readonly onConfirm?:(param?:T)=>void,
+    readonly onConfirm?:(param?:T)=>void, // param:T is not needed as we're receiving arrow fns
     readonly parentSetter?:React.Dispatch<React.SetStateAction<boolean>>
 }
 

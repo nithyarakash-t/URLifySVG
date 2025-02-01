@@ -4,7 +4,6 @@
 -- Ctrl + s on Grid
 -- localStorage disclaimer , option to completely clear out local storage
     with confirmation modal
--- confirmation modal for delete and clear (will require reusable dialog component)
 -- Dropdown with sample ?!
 -- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
 -- replace all svgs with background / mask
@@ -13,6 +12,8 @@
     -- pending extend overlay post animation completion
 -- improve UX, colors
 -- dark theme for favicon
+-- show icon before deletion on modal
+-- DONE - confirmation modal for delete and clear (will require reusable dialog component)
 
 -- v3.0
 
