@@ -11,7 +11,7 @@ const STORAGE_KEY = "local-history";
 type StorageContextType = {
   localHistory: Datum[];
   addToHistory: (item: Datum) => boolean;
-  editHistory: (index: number, updatedItem: Datum) => boolean;
+  renameHistory: (index: number, updatedItem: Datum) => boolean;
   deleteFromHistory: (index: number) => boolean;
   clearHistory: () => void;
 };
@@ -48,8 +48,8 @@ export const StorageProvider: React.FC<{ children: React.ReactNode }> = ({ child
     return true; // Indicate success
   };
 
-  // Edit an existing item in the history
-  const editHistory = (index: number, updatedItem: Datum):boolean => {
+  // Rename an existing item in the history
+  const renameHistory = (index: number, updatedItem: Datum):boolean => {
     if(localHistory.some((item, i) => i !== index && item.name === updatedItem.name)) {
       return false;
     }
@@ -77,7 +77,7 @@ export const StorageProvider: React.FC<{ children: React.ReactNode }> = ({ child
   };
 
   return (
-    <StorageContext.Provider value={{ localHistory, addToHistory, editHistory, deleteFromHistory, clearHistory }}>
+    <StorageContext.Provider value={{ localHistory, addToHistory, renameHistory, deleteFromHistory, clearHistory }}>
       {children}
     </StorageContext.Provider>
   );

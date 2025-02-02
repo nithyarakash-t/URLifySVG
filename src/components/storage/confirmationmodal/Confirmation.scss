@@ -1,68 +1,4 @@
-.app-modal {
-  &__error {
-    color: #ff0000;
-    margin-top: 1rem;
-  }
-  &__input {
-    > input {
-      flex: 1;
-      border: 1px solid #000;
-      &:required {
-        + span::before {
-          content: "";
-          position: absolute;
-          inset: 50% 1rem auto auto;
-          display: block;
-          translate: 0 -50%;
-          height: 0.875rem;
-          aspect-ratio: 1/1;
-          background-color: var(--_color-error);
-          border-radius: 50%;
-          transition: all 0.2s ease;
-        }
-      }
-      &:user-invalid {
-        outline: 1px solid var(--_color-error);
-        + span::after {
-          content: "Error: Enter valid value";
-          position: absolute;
-          top: calc(100% + 2px);
-          display: block;
-          translate: 0 0;
-          right: 0;
-          line-height: 1;
-          color: var(--_color-error);
-        }
-      }
-      &:user-valid {
-        + span::before {
-          background-color: light-dark(#008000, #fff);
-          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.801 10A10 10 0 1 1 17 3.335'/%3E%3Cpath d='m9 11 3 3L22 4'/%3E%3C/svg%3E");
-          mask-repeat: no-repeat;
-          mask-position: center;
-          mask-size: contain;
-        }
-        &::after {
-          content: none;
-        }
-      }
-    }
-    > span {
-      display: inline-block;
-      flex: 0 0 auto;
-    }
-    & {
-      --_color-error: light-dark(
-        #ff0000,
-        color-mix(in lch longer hue, #ff0000, #fff)
-      );
-      position: relative;
-      display: flex;
-      flex-direction: row-reverse;
-      gap: 1rem;
-      align-items: center;
-    }
-  }
+.app-confirmmod {
   &__footer {
     display: flex;
     flex-wrap: wrap;
@@ -76,7 +12,6 @@
     flex: 1;
     overflow-y: auto;
     padding: 1rem var(--_padding-h) 1rem;
-    min-height: 6.5rem;
   }
   &__header {
     button {
