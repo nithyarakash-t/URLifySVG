@@ -73,14 +73,21 @@ export function Flyout({loadEncodeInput}
     }, [open])
 
     useEffect(()=>{
+        const dialog = (dialogRef.current as HTMLDialogElement);
+        //Close dialog on escape
         function handleKeyDown(e:KeyboardEvent) {
-            if(e.key === 'Escape') {
-                setOpen(false);
-            }
+            if(e.key === 'Escape') setOpen(false);
         }
+        //Close dialog on backdrop click
+        function handlePointerDown(event:PointerEvent) {
+            if ( event.target === dialog ) setOpen(false);
+        }
+        
+        dialog.addEventListener('pointerdown', handlePointerDown)
         window.addEventListener('keydown', handleKeyDown);
 
         return ()=>{
+            dialog.removeEventListener('pointerdown', handlePointerDown)
             window.removeEventListener('keydown', handleKeyDown);
         }
     }, [])
