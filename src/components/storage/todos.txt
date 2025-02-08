@@ -1,14 +1,16 @@
 -- micro interactions, animations on modal, flyout
--- are you sure layer before save
-
--- pass svg and encoded url to modal
--- show preview?
-
--- check existing name conflict
 -- show alert if added successfully
 -- alert should have an option to open flyout
+
+---------DONE----------
+-- check existing name conflict
 -- if name exists / svg exists, user should get an option to edit it
-
-
 -- Load, edit and delete options on flyout - inline edit ?
 -- Flyout closes on click of load
+
+-------MAYBE LATER-----
+-- are you sure layer before save
+
+-------NOT REQUIRED-----
+-- pass svg and encoded url to modal 
+-- show preview before save?
