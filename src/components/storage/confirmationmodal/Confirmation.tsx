@@ -79,8 +79,8 @@ export function ConfirmModal<T,>({ // Note: Even if we were using T above, it's 
                        <p>{content}</p>
                     </div>
                     <div className='app-confirmmod__footer'>
-                        <button type='button' aria-label='cancel' onClick={()=>handleCancel()}>Cancel</button>
-                        <button type='button' aria-label='Confirm' onClick={()=>handleConfirm()}>Confirm</button>
+                        <button type='button' className='app-button -secondary' aria-label='cancel' onClick={()=>handleCancel()}>Cancel</button>
+                        <button type='button' className='app-button -primary' aria-label='Confirm' onClick={()=>handleConfirm()}>Confirm</button>
                     </div>
                 </div>
             </dialog>

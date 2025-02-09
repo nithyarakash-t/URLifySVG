@@ -14,7 +14,18 @@ function App() {
           <Header/>
           <main className="app-wrap" id="main">
               <Routes>
-                <Route path="/" element={<Grid/>}></Route>
+                <Route path="/" element={
+                  <>
+                  <div className="app-container">
+                    <h1 aria-label="URLifySVG - URL Encoder">
+                      URL Encoder
+                      {/* <span>Encode, Copy, Use</span> */}
+                      <span>CSS is all you need!</span>
+                    </h1>
+                  </div>
+                  <Grid/>
+                  </>
+                }></Route>
                 <Route path='/releasenotes' element={<ReleaseNotes/>}></Route>
                 <Route path='*' element={<Navigate to='/' />} />
               </Routes>

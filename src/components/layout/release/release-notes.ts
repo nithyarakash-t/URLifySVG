@@ -1,6 +1,6 @@
 export const releaseNotes = [
     {
-        version: "2.3.1",
+        version: "2.4.0",
         date: "29.01.2024",
         desc: [
             "Feature - Added provision to save icons in local browser history",
@@ -8,7 +8,7 @@ export const releaseNotes = [
             "2.1.0 - 30.01.2024 - Added provision to load icons from history -- rename and clear all to be shipped",
             "2.2.0 - 31.01.2024 - Added provision to rename history -- delete and clear all to be shipped",
             "2.3.0 - 02.02.2024 - Added delete and clear, refined structure, rename",
-            "2.3.1 - 08.02.2024 - Added a fallback path for router, Updated dialogs to click on backrop close",
+            "2.4.0 - 09.02.2024 - Added a fallback path for router, Updated dialogs to click on backrop close, UI updates",
         ]
     },
     {
