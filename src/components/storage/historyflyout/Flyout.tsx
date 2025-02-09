@@ -100,17 +100,20 @@ export function Flyout({loadEncodeInput}
             <dialog ref={dialogRef} className="app-flyout__wrap" id="app-flyout" aria-labelledby="app-flyout-title">
                 <div className="app-flyout__container">
                     <div className="app-flyout__header">
-                        <h2 id="app-flyout-title">Flyout title</h2>
+                        <h2 id="app-flyout-title">Saved history</h2>
                         <button type="button" autoFocus onClick={()=>setOpen(false)} aria-label='Close flyout'>
                             <svg aria-hidden='true' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                         </button>
                         
                         {/* Search and clear */}
                         <div className='app-flyout__header-group'>
-                            <input type="search" aria-label='Search'
-                                value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="Search by name" className="app-flyout__search"
-                            />
+                            <label className='app-flyout__search'>
+                                <input type="search"
+                                    value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+                                    placeholder="Search by name"
+                                />
+                                <span className='sr-only'>Search saved SVGs</span>
+                            </label>
                             <button className='app-flyout__clear' type='button' aria-label='Clear all saved icons' onClick={()=>handleClear()}></button>
                         </div>
                     </div>

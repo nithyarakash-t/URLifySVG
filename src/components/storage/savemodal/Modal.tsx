@@ -115,7 +115,7 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
                     <div className="app-modal__header">
                         <button type="button" className='app-modal__close' onClick={()=>setOpen(false)} aria-label='Close'></button>
                         <h2 className='app-modal__title' id="app-modal-title">
-                            {mode === 'add' ? 'Add' : "Rename" }
+                            {mode === 'add' ? 'Save' : "Rename" }
                         </h2>
                     </div>
                     <div className="app-modal__body">
