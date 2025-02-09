@@ -5,18 +5,14 @@ import { Footer } from "./components/layout/footer/Footer"
 import { Grid } from "./components/layout/grid/Grid"
 import { ReleaseNotes } from "./components/layout/release/ReleaseNotes";
 import { Themetoggle } from "./components/layout/themetoggle/Themetoggle";
+import { Header } from "./components/layout/header/Header";
 
 function App() {
   return (
     <BrowserRouter>
         <div className="app-wrapper">
+          <Header/>
           <main className="app-wrap" id="main">
-            <div className="app-container">
-              <h1 className='app-title' aria-label="URLifySVG - URL Encoder for SVG">
-                URLifySVG
-                <span>URL Encoder for SVG</span>
-              </h1>
-            </div>
               <Routes>
                 <Route path="/" element={<Grid/>}></Route>
                 <Route path='/releasenotes' element={<ReleaseNotes/>}></Route>

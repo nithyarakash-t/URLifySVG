@@ -1,0 +1,2 @@
+- https://developers.google.com/search/docs/crawling-indexing/special-tags
+- https://www.seoptimer.com/meta-tag-generator

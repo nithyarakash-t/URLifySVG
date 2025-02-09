@@ -1,0 +1,119 @@
+// @layer normalize, appcontent;
+
+@mixin blocksize() {
+  height: 9.375rem;
+  width: 100%;
+}
+
+// @layer normalize {
+body {
+  font-family: Trebuchet MS, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative;
+
+  &::before {
+    --_size: 45px;
+    --_line: color-mix(in hsl, #777, transparent 70%);
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: linear-gradient(
+          90deg,
+          var(--_line) 1px,
+          transparent 1px var(--_size)
+        )
+        50% 50% / var(--_size) var(--_size),
+      linear-gradient(var(--_line) 1px, transparent 1px var(--_size)) 50% 50% /
+        var(--_size) var(--_size);
+    mask: linear-gradient(-20deg, transparent 50%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+.linkbutton {
+  background-color: transparent;
+  border: none;
+}
+
+a,
+.linkbutton {
+  color: light-dark(#0f73dd, #bb86fc);
+  text-decoration: underline;
+  display: inline-block;
+
+  &:hover,
+  &:focus-visible {
+    color: light-dark(#a100ff, red);
+  }
+}
+// }
+
+// @layer appcontent {
+.app-title,
+h1 {
+  font-size: 2.75rem;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  color: light-dark(#000, #fff);
+  text-decoration: none;
+  display: block;
+
+  span {
+    display: block;
+    font-size: 0.6em;
+  }
+}
+
+textarea {
+  @include blocksize();
+  border: 1px solid var(--color-base-border);
+  border-radius: 0.625rem;
+  resize: vertical;
+  padding: 0.25rem 0.5rem;
+  scrollbar-gutter: stable;
+}
+
+.app-demo {
+  &__block {
+    @include blocksize();
+    border: 1px dashed var(--color-base-border);
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 99;
+  }
+}
+
+.app-group {
+  &__title {
+    font-size: 1.25rem;
+    // padding: 1rem 0;
+  }
+
+  &__foot {
+    color: light-dark(#777);
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  & {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+// }

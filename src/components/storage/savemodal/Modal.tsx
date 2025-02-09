@@ -38,6 +38,16 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
             if(e.key === 'Escape') {
                 setOpen(false);
             }
+            if (e.ctrlKey && e.key === 's') {
+                //Hotfix - If other dialogs are open do not open save modal
+                if(document.querySelector('dialog[open]')) {
+                    return;
+                }
+                e.preventDefault();
+                e.stopPropagation();
+                setOpen(true);
+            }
+
             setError(false);
         }
         //Close dialog on backdrop click
