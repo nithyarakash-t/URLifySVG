@@ -1,10 +1,10 @@
 -- v2.0
--- UPDATE UI - Publish 
 -- localStorage disclaimer
 -- Dropdown with sample ?!
 -- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
 
 -- v3.0
+-- Revamp UI if needed
 -- Google / Github sign in and supabase ?! -- cookies/cache and local/ session storage + supabase
 -- dark theme for favicon
 -- show icon before deletion on modal
@@ -30,6 +30,7 @@
 -- replace all svgs with background / mask
 -- SEO
 -- Ctrl + s on Grid
+-- Update UI
 
 -- v1.0
 -- release notes - react router -- done
