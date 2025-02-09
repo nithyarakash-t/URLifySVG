@@ -14,7 +14,6 @@ export function ReleaseNotes() {
                     <h2 className="app-releasenotes__title">Release Notes</h2>
                 </div>
                 <ol className="app-releasenotes__list">
-
                     {releaseNotes.map((item,index)=>{
                         return <li key={index}>
                             <div className="app-releasenotes__group" role="group" aria-labelledby={"releasenote_v_" + item.version}>

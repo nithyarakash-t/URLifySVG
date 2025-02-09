@@ -4,11 +4,22 @@
     margin-top: 1rem;
   }
   &__input {
-    > input {
-      flex: 1;
-      border: 1px solid #000;
-      &:required {
-        + span::before {
+    > span {
+      display: inline-block;
+      flex: 0 0 auto;
+    }
+    > div {
+      > input {
+        width: 100%;
+        border: 1px solid #000;
+        padding: 0.125rem 2.25rem 0.125rem 0.25rem;
+  
+        &:user-invalid {
+          outline: 1px solid var(--_color-error);
+        }
+      }
+      &:has(input:required) {
+        &::before {
           content: "";
           position: absolute;
           inset: 50% 1rem auto auto;
@@ -21,9 +32,8 @@
           transition: all 0.2s ease;
         }
       }
-      &:user-invalid {
-        outline: 1px solid var(--_color-error);
-        + span::after {
+      &:has(input:user-invalid) {
+        &::after {
           content: "Error: Enter valid value";
           position: absolute;
           top: calc(100% + 2px);
@@ -34,8 +44,8 @@
           color: var(--_color-error);
         }
       }
-      &:user-valid {
-        + span::before {
+      &:has(input:user-valid) {
+        &::before {
           background-color: light-dark(#008000, #fff);
           mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.801 10A10 10 0 1 1 17 3.335'/%3E%3Cpath d='m9 11 3 3L22 4'/%3E%3C/svg%3E");
           mask-repeat: no-repeat;
@@ -46,10 +56,11 @@
           content: none;
         }
       }
-    }
-    > span {
-      display: inline-block;
-      flex: 0 0 auto;
+      & {
+        position: relative;
+        flex: 1;
+        width: 100%;
+      }
     }
     & {
       --_color-error: light-dark(
@@ -59,8 +70,17 @@
       position: relative;
       display: flex;
       flex-direction: row-reverse;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
       align-items: center;
+
+      @media (max-width: 720px) {
+        flex-direction: column-reverse;
+        span {
+          width: 100%;
+          text-align: left;
+        }
+      }
     }
   }
   &__footer {

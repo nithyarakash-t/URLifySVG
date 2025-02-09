@@ -86,12 +86,12 @@
 
 html {
   &[data-theme="light"] {
-    .app-modal__wrap {
+    .app-confirmmod__wrap {
       color-scheme: only light;
     }
   }
   &[data-theme="dark"] {
-    .app-modal__wrap {
+    .app-confirmmod__wrap {
       color-scheme: only dark;
     }
   }

@@ -1,45 +1,45 @@
 -- v2.0
--- Priorities
-   -- IMPORTANT -- FINISH THE LOCAL STORAGE - UPDATE UI - Publish and then work on sign in and supabase
--- Ctrl + s on Grid
--- localStorage disclaimer , option to completely clear out local storage
-    with confirmation modal
+-- UPDATE UI - Publish 
+-- localStorage disclaimer
 -- Dropdown with sample ?!
 -- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
--- replace all svgs with background / mask
--- Fix theme toggle issues -- done 
-    -- overlay revert is buggy in mobile (refer how imabi . org do it)
-    -- pending extend overlay post animation completion
--- improve UX, colors
--- dark theme for favicon
--- show icon before deletion on modal
--- DONE - confirmation modal for delete and clear (will require reusable dialog component)
 
 -- v3.0
-
+-- Google / Github sign in and supabase ?! -- cookies/cache and local/ session storage + supabase
+-- dark theme for favicon
+-- show icon before deletion on modal
 -- Check on alternatives to display SVG in flyout
 -- Bin ? clear after 30 days
 -- If no history to delete, dont show confirmation modal, just alert there's no history to delete
--- language support
--- SEO
 -- container query
 -- dark mode (with after dark neon sign)
 -- accessibility (through usability testing)
--- Google / Github sign in and supabase ?! -- cookies/cache and local/ session storage + supabase
 
 -- v4.0
 -- malformed URI sequence handle / alert
+-- language support
 
-Completed
+---------Completed---------
+-- v2.0
+-- Local storage
+-- option to completely clear out local storage with confirmation modal
+-- DONE - confirmation modal for delete and clear (will require reusable dialog component)
+-- Fix theme toggle issues -- done 
+    -- overlay revert is buggy in mobile (refer how imabi . org do it)
+    -- pending extend overlay post animation completion
+-- replace all svgs with background / mask
+-- SEO
+-- Ctrl + s on Grid
 
 -- v1.0
 -- release notes - react router -- done
 -- make release notes to a JSON
 -- dropzone, but check for bugs
 
-
-Queries
+---------Queries----------
 -- Is there an equivalent in react for @Output from angular ?? (Application - Confirmation dialog)
 Queries on useContext
 -- https://stackoverflow.com/questions/51504506/too-many-react-context-providers
 -- https://stackoverflow.com/questions/58474027/is-it-possible-to-use-the-same-context-provider-on-multiple-components
+
+-------Not required--------

@@ -32,15 +32,34 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
     }, [open]);
     
     useEffect(()=>{
+        const dialog = (dialogRef.current as HTMLDialogElement);
+        //Close dialog on escape
         function handleKeyDown(e:KeyboardEvent) {
             if(e.key === 'Escape') {
                 setOpen(false);
             }
+            if (e.ctrlKey && e.key === 's') {
+                //Hotfix - If other dialogs are open do not open save modal
+                if(document.querySelector('dialog[open]')) {
+                    return;
+                }
+                e.preventDefault();
+                e.stopPropagation();
+                setOpen(true);
+            }
+
             setError(false);
         }
+        //Close dialog on backdrop click
+        function handlePointerDown(event:PointerEvent) {
+            if ( event.target === dialog ) setOpen(false);
+        }
+        
+        dialog.addEventListener('pointerdown', handlePointerDown)
         window.addEventListener('keydown', handleKeyDown);
 
         return ()=>{
+            dialog.removeEventListener('pointerdown', handlePointerDown)
             window.removeEventListener('keydown', handleKeyDown);
         }
     }, [])
@@ -103,14 +122,16 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
                         <form ref={formRef} id='app-savemodal-form' className='app-modal__form'
                         onSubmit={handleFormSubmit}>
                             <label className='app-modal__input'>
-                                <input autoFocus id='name' name='name' required type='text'
-                                defaultValue={name}
-                                placeholder='a-z0-9_ are allowed | min. 3 a-z | max. 30 chars' 
-                                aria-label='Enter name - 3-30 characters, lowercase a-z, 0-9, and underscores only. Ensure to include atleast 3 a-z' 
-                                pattern='^(?=(.*[a-z]){3})\w{3,30}' minLength={3} maxLength={30}
-                                //^[a-z0-9-]{3,30}$                                
-                                //^(?=(.*[a-z]){3})[a-z0-9-]{3,30}
-                                />
+                                <div>
+                                    <input autoFocus id='name' name='name' required type='text'
+                                    defaultValue={name}
+                                    placeholder='a-z0-9_ are allowed | min. 3 a-z | max. 30 chars' 
+                                    aria-label='Enter name - 3-30 characters, lowercase a-z, 0-9, and underscores only. Ensure to include atleast 3 a-z' 
+                                    pattern='^(?=(.*[a-z]){3})\w{3,30}' minLength={3} maxLength={30}
+                                    //^[a-z0-9-]{3,30}$                                
+                                    //^(?=(.*[a-z]){3})[a-z0-9-]{3,30}
+                                    />
+                                </div>
                                 <span>Name: </span>
                             </label>
                         </form>
@@ -126,8 +147,8 @@ export function Modal({svg, mode = 'add', index, name='', setShowModal}:ModalPro
                         }
                     </div>
                     <div className='app-modal__footer'>
-                        <button type='button' aria-label='cancel' onClick={()=>setOpen(false)}>Cancel</button>
-                        <button type='submit' form='app-savemodal-form' aria-label='submit'>Submit</button>
+                        <button type='button' className='app-button -secondary' aria-label='cancel' onClick={()=>setOpen(false)}>Cancel</button>
+                        <button type='submit' className='app-button -primary' form='app-savemodal-form' aria-label='submit'>Submit</button>
                     </div>
                 </div>
             </dialog>

@@ -1,0 +1,21 @@
+.app-header {
+    &__title {
+        font-family: "Charm", Arial, Helvetica, sans-serif;
+        color: light-dark(#000, #fff);
+        text-decoration: none;
+        font-size: 2rem;
+        &:hover,
+        &:focus-visible {
+            color: light-dark(#000, #fff);
+            text-decoration: none;
+        }
+    }
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__wrap {
+        padding: 1rem 0;
+    }
+}

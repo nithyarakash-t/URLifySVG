@@ -1,0 +1,194 @@
+@layer fonts;
+
+@mixin blocksize() {
+  height: 9.375rem;
+  width: 100%;
+}
+
+@layer fonts {
+    @font-face {
+        font-family: "Charm";
+        src: url('/fonts/Charm/Charm-Regular.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: "Fredericka";
+        src: url('/fonts/Fredericka_the_Great/FrederickatheGreat-Regular.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: "Henny Penny";
+        src: url('/fonts/Henny_Penny/HennyPenny-Regular.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: "Kranky";
+        src: url('/fonts/Kranky/Kranky-Regular.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: "Mountains of Christmas";
+        src: url('/fonts/Mountains_of_Christmas/MountainsofChristmas-Regular.ttf') format('truetype');
+    }
+}
+
+// @layer normalize {
+body {
+  font-family: Trebuchet MS, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative;
+
+  //bg#1
+  //   &::before {
+  //     --_size: 45px;
+  //     --_line: color-mix(in hsl, #777, transparent 70%);
+  //     content: "";
+  //     height: 100vh;
+  //     width: 100vw;
+  //     position: fixed;
+  //     background: linear-gradient(
+  //           90deg,
+  //           var(--_line) 1px,
+  //           transparent 1px var(--_size)
+  //         )
+  //         50% 50% / var(--_size) var(--_size),
+  //       linear-gradient(var(--_line) 1px, transparent 1px var(--_size)) 50% 50% /
+  //         var(--_size) var(--_size);
+  //     mask: linear-gradient(-20deg, transparent 50%, white);
+  //     top: 0;
+  //     transform-style: flat;
+  //     pointer-events: none;
+  //     z-index: -1;
+  //   }
+  //bg -2
+  &::before {
+    --_opacity: 1;
+    content: "";
+    background-size: 16px 16px;
+    background-image: radial-gradient(#ddd 1px, transparent 0);
+    background-color: rgb(255 255 255 / var(--_opacity));
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+  }
+  //bg-3
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   background-image: linear-gradient(90deg,#4f4f4f2e 1px,transparent 0),linear-gradient(180deg,#4f4f4f2e 1px,transparent 0);
+  //   background-size: 14px 24px;
+  //   mask-image: radial-gradient(ellipse 80% 50% at 50% 0,#000 70%,transparent 110%);
+  //   z-index: -9;
+  //   pointer-events: none;
+  // }
+}
+// }
+
+// @layer appcontent {
+h1 {
+  --_gradient: conic-gradient(from 45deg, #FFD700 52%, #B8860B 61%); ;
+  font-size: clamp(2rem, 9vw, 2.75rem);
+  line-height: 1.15;
+  font-family: "Fredericka","Times New Roman", Times, serif;
+  text-align: center;
+  color: light-dark(#000, #fff);
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  background: #000; // var(--_gradient);
+  background-size: 15ch 7.5ch;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  span {
+    display: block;
+    font-size: 0.6em;
+    line-height: 1.5
+  }
+}
+
+textarea {
+  @include blocksize();
+  border: 1px solid var(--color-base-border);
+  border-radius: 0.625rem;
+  resize: vertical;
+  padding: 0.25rem 0.5rem;
+  scrollbar-gutter: stable;
+}
+
+.app-demo {
+  &__block {
+    @include blocksize();
+    border: 1px dashed var(--color-base-border);
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 99;
+  }
+}
+
+.app-group {
+  &__title {
+    font-size: 1.25rem;
+    // padding: 1rem 0;
+  }
+
+  &__foot {
+    color: light-dark(#777);
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  & {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+// }
+
+// @layer components
+.app-button {
+    & {
+        --_main: light-dark(#000, #fff);
+        --_contrast: light-dark(#fff, #000);
+        border-radius: 0;
+        padding: 0.25rem 0.5rem;
+        background-color: var(--_main);
+        border: 1px solid var(--_contrast);
+        color: var(--_contrast);
+    }
+    &.-primary {
+        --_main: light-dark(#000, #fff);
+        --_contrast: light-dark(#fff, #000);
+    }
+    &.-secondary {
+        --_main: light-dark(#fff, #000);
+        --_contrast: light-dark(#000, #fff);
+    }
+}
+.linkbutton {
+    background-color: transparent;
+    border: none;
+  }
+  
+  a,
+  .linkbutton {
+    color: light-dark(#0f73dd, #bb86fc);
+    text-decoration: underline;
+    display: inline-block;
+  
+    &:hover,
+    &:focus-visible {
+      color: light-dark(#a100ff, red);
+    }
+  }
+//}
