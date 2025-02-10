@@ -1,4 +1,7 @@
 -- v2.0
+-- sitemap
+-- language context
+-- themetoggle context ??
 -- localStorage disclaimer
 -- Dropdown with sample ?!
 -- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
@@ -17,11 +20,12 @@
 
 -- v4.0
 -- malformed URI sequence handle / alert
--- language support
+-- language support - context
 
 ---------Completed---------
 -- v2.0
 -- Local storage
+-- themetoggle background, 
 -- option to completely clear out local storage with confirmation modal
 -- DONE - confirmation modal for delete and clear (will require reusable dialog component)
 -- Fix theme toggle issues -- done 
