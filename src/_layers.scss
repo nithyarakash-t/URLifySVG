@@ -85,6 +85,7 @@ body {
 
 // @layer appcontent {
 h1 {
+  --_grad: linear-gradient(rgb(255, 211, 25), rgb(255, 41, 117), rgb(140, 30, 255)); //notcodesid.xyz
   --_gradient: conic-gradient(from 45deg, #FFD700 52%, #B8860B 61%); ;
   font-size: clamp(2rem, 9vw, 2.75rem);
   line-height: 1.15;
