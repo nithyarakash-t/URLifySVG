@@ -1,5 +1,7 @@
 -- v2.0
 -- sitemap
+-- language context
+-- themetoggle background, context ??
 -- localStorage disclaimer
 -- Dropdown with sample ?!
 -- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
