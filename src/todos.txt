@@ -3,7 +3,7 @@
 -- language context
 -- themetoggle context ??
 -- localStorage disclaimer
--- Dropdown with sample ?!
+-- Dropdown with sample + free Svg resources 
 -- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
 
 -- v3.0
