@@ -85,7 +85,7 @@ export function Header() {
                             id="details-resources"
                             open={openDetails === 'details-resources'}
                             onToggle={() => handleToggle('details-resources')}>
-                            <summary id="resources">
+                            <summary id="resources" title={'Resources'}>
                                 <span className="sr-only">Resources</span>
                             </summary>
                             <div className="app-info__accordion">
@@ -105,7 +105,7 @@ export function Header() {
                             id="details-info"
                             open={openDetails === 'details-info'}
                             onToggle={() => handleToggle('details-info')}>
-                            <summary id="about">
+                            <summary id="about" title={'About'}>
                                 <span className="sr-only">About</span>
                             </summary>
                             <div className="app-info__accordion">
