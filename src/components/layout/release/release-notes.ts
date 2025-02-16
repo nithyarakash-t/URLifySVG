@@ -1,9 +1,16 @@
 export const releaseNotes = [
     {
-        version: "2.4.1",
-        date: "29.01.2024",
+        version: "2.5.0",
+        date: "16.02.2025",
         desc: [
-            "Feature - Added provision to save icons in local browser history",
+            "2.5.0 - Content update - Added list of free SVG offering resources and a description of the tool",
+        ]
+    },
+    {
+        version: "2.4.1",
+        date: "29.01.2025",
+        desc: [
+            "2.0.0 - Feature - Added provision to save icons in local browser history",
             "2.0.1 - Bugfix on a custom property name in themetoggle",
             "2.1.0 - 30.01.2025 - Added provision to load icons from history -- rename and clear all to be shipped",
             "2.2.0 - 31.01.2025 - Added provision to rename history -- delete and clear all to be shipped",
@@ -13,18 +20,12 @@ export const releaseNotes = [
         ]
     },
     {
-        version: "1.4.2",
-        date: "18.01.2025",
-        desc: [
-            "Bugfix - z-index bug fix on demo component",
-        ]
-    },
-    {
         version: "1.4",
         date: "22.12.2025",
         desc: [
             "1.4 - Changed color scheme to only light and added dark theme via mix blend mode",
             "1.4.1 - 09.01.25 - Fixes to themetoggle",
+            "1.4.2 - 10.01.25 - Bugfix - z-index bug fix on demo component"
         ]
     },
     {

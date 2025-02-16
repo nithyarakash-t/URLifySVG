@@ -6,10 +6,12 @@ import { Grid } from "./components/layout/grid/Grid"
 import { ReleaseNotes } from "./components/layout/release/ReleaseNotes";
 import { Themetoggle } from "./components/layout/themetoggle/Themetoggle";
 import { Header } from "./components/layout/header/Header";
+import { ThemeProvider } from "./components/layout/themetoggle/Themecontext";
 
 function App() {
   return (
     <BrowserRouter>
+      <ThemeProvider>
         <div className="app-wrapper">
           <Header/>
           <main className="app-wrap" id="main">
@@ -33,6 +35,7 @@ function App() {
           <Themetoggle/>
           <Footer/>
         </div>
+      </ThemeProvider>
     </BrowserRouter>
   )
 }

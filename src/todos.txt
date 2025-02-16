@@ -1,10 +1,8 @@
 -- v2.0
--- sitemap
+-- sitemap and robots
 -- language context
--- themetoggle context ??
 -- localStorage disclaimer
--- Dropdown with sample ?!
--- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
+-- presets
 
 -- v3.0
 -- Revamp UI if needed
@@ -26,6 +24,9 @@
 -- v2.0
 -- Local storage
 -- themetoggle background, 
+-- Add message - help us improve by submitting funcitonal, ui, accessibility bugs in github
+-- Dropdown with sample, Free svg resources ?!
+-- themetoggle context - added but not used
 -- option to completely clear out local storage with confirmation modal
 -- DONE - confirmation modal for delete and clear (will require reusable dialog component)
 -- Fix theme toggle issues -- done 
