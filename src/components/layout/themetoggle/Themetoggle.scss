@@ -34,9 +34,6 @@
         scale: 300;
       }
     }
-    &.-square {
-      border-radius: 0;
-    }
   }
   &__button {
     @include themetoggle-theme();
