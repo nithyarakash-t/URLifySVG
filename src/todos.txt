@@ -1,4 +1,5 @@
 -- v2.0
+-- delete animation - https://ghost-together.medium.com/design-for-empathy-using-micro-animations-4ea855dc2a25
 -- sitemap and robots
 -- language context
 -- localStorage disclaimer
