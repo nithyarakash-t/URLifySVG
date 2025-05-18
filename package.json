@@ -2,6 +2,8 @@
   "name": "urlifysvg",
   "private": true,
   "version": "2.5.0",
+  "author": "Nithyaprakash Thiyagarajan",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
